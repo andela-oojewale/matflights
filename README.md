@@ -17,8 +17,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/andela
 * Push to the branch (git push origin my-new-feature)
 * Create a new Pull Request
 
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
