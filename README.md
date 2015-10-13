@@ -1,7 +1,8 @@
 # MatFlights
 
 Hi,
-I have developing a flight booking system with rails. More information to come shortly.
+I am developing a flight booking system with rails.
+More information to come shortly.
 Olaide.
 
 
