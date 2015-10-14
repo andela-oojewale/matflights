@@ -1,0 +1,8 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: matflights
+machine:
+  ruby:
+    version: 2.2.3

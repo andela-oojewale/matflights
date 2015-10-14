@@ -1,6 +1,21 @@
 <section class="home">
  <div class="row">
-
+    <div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag("bg1.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg2.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg3.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg4.jpg") %>
+      </li>
+    </ul>
+  </div>
  </div>
 </section>
 <section class="other_info">
@@ -31,3 +46,9 @@
     </div>
  </div>
 </section>
+<script type="text/javascript">
+
+$(document).ready(function(){
+      $('.slider').slider({full_width: true, height: "40em"});
+    });
+</script>
