@@ -7,6 +7,10 @@ Olaide.
 
 
 
+## Project Website
+Click [here](https://matflights.herokuapp.com/) to see a demo of the matflights app.
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-oojewale/matflights.
