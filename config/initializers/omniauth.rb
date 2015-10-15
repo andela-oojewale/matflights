@@ -6,4 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       :image_aspect_ratio => "square",
       :image_size => 50
     }
+    provider :facebook, "876081192460786", "7b584947b29d813de98557b8af66e00b", scope: "public_profile", info_fields: "id,name,link"
 end

@@ -104,6 +104,8 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
+    omniauth-facebook (2.0.1)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.2.8)
       addressable (~> 2.3)
       jwt (~> 1.0)
@@ -122,6 +124,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.14.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -230,10 +233,12 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   materialize-sass
+  omniauth-facebook
   omniauth-google-oauth2
   paypal-express
   pg (= 0.17.1)
   pry
+  puma
   rails (= 4.2.4)
   rails_12factor (= 0.0.2)
   rspec-rails (~> 3.0)

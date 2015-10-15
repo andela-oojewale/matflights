@@ -10,6 +10,4 @@ class Passenger < ActiveRecord::Base
     end
   end
 
-
-
 end

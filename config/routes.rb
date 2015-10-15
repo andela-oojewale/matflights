@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"
-
   get '/auth/:provider/callback', to: "sessions#create"
+  get '/auth/facebook', to: "sessions#create"
+
   resources :flights
   get "/loggedin" => "flights#loggedin", as: :log
 
