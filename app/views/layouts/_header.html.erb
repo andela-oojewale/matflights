@@ -4,10 +4,29 @@
       <div class="row">
       <a href="#" class="brand-logo col l6 offset-l1 s12">MatFlights</a>
       <ul class="right hide-on-med-and-down col l3 offset-l2 s12">
-        <a class="waves-effect waves-light btn">Login</a>
-        <a class="waves-effect waves-light btn">Sign Up</a>
+        <li><a class="" href="#">All Flights</a></li>
+        <% if !current_user %>
+          <li><a class="modal-trigger" href="#modal1">Login</a></li>
+        <%  else %>
+        <li><%= session[:name] %></li>
+        <li>
+          <%= get_user_image(session[:image]) %>
+          <ul>
+            <li><%= link_to "Past booking" %></li>
+            <li><%= link_to "Manage booking" %></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+        </li>
+        <% end %>
       </ul>
       </div>
     </div>
   </nav>
+</div>
+
+<div id="modal1" class="modal">
+  <div class="modal-content row">
+    <p>&nbsp;</p>
+    <div class="col l2 offset-l2 s4"><a href="/auth/google_oauth2" class="waves-effect waves-light btn blue-grey"><i class="fa fa-google-plus-square fa-2x left">Google</i></a></div>
+  </div>
 </div>

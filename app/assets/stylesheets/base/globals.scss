@@ -17,12 +17,10 @@ h1 {
   @extend .blue, .accent-1;
   ul {
     a {
-       @extend  .blue-grey, .lighten-4;
        @extend .white-text;
     }
   }
 }
-
 
 main {
   flex: 1 0 auto;
@@ -36,5 +34,13 @@ main {
   .footer-copyright {
     @extend .white-text;
   }
+}
+
+.booking_form {
+  @extend .white;
+  height: 27em;
+  z-index: 100;
+  @include round-edges(1em);
+  margin-top: 4em;
 }
 

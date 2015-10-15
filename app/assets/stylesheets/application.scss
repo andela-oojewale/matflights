@@ -1,8 +1,9 @@
 @import "materialize/components/color";
-$primary-color: color("blue-grey", "lighten-4") !default;
+$primary-color: color("blue", "accent-1") !default;
 @import "materialize";
-@import "base/globals";
-@import "base/normalize";
-@import "base/typebase";
-@import "styles/flights";
 @import "base/mixins";
+@import "base/globals";
+@import "styles/flights";
+
+
+

@@ -1,6 +1,26 @@
 Rails.application.routes.draw do
   root "flights#index"
 
+  # get 'session/new'
+
+  # get "loggedin" => "session#show", as: :loggedin
+
+  # # match "create" => "session#create", as: :create_acc, via: [:get, :post]
+
+  # get "session/create"
+
+  # get "logout" => "session#destroy", as: :logout
+
+
+
+  resources :sessions, only: [:destroy, :show]
+  get "logout" => "sessions#destroy"
+
+  get '/auth/:provider/callback', to: "sessions#create"
+  resources :flights
+  get "/loggedin" => "flights#loggedin", as: :log
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

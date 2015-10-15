@@ -1,0 +1,8 @@
+<div class="booking_form col l6 offset-l3 s12">
+    <%= form_tag("/", method: "post", class: "row") do %>
+      <%= label_tag(:from, "From") %>
+      <%= text_field_tag('from', nil, class: "") %>
+      <%= label_tag(:to, "To") %>
+      <%= text_field_tag('to', nil, class: "") %>
+    <% end %>
+  </div>

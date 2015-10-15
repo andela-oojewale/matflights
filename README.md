@@ -8,7 +8,7 @@ Olaide.
 
 
 ## Project Website
-Click [here](https://matflights.herokuapp.com/) to see a demo of the matflights app.
+Click [here](https://matflights.herokuapp.com/) to see a demo of the MatFlights app.
 
 
 ## Contributing

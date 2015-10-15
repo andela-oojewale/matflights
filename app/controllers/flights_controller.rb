@@ -4,4 +4,8 @@ class FlightsController < ApplicationController
 
   end
 
+  def loggedin
+
+  end
+
 end
