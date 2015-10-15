@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
   private
 
   def get_sessions(auth_param)
-      require "pry"; binding.pry
     session[:provider] = auth_param[:provider]
     session[:user_id] = auth_param[:uid]
     session[:name] = auth_param[:info][:name]
