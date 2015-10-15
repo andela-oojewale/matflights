@@ -2,8 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.home
-{
+.home {
   height: 40em;
   width: 100%;
+  .booking_form {
+    @extend .black;
+    position: absolute;
+    opacity:0.5;
+    top: 6em;
+  }
 }
+

@@ -1,5 +1,4 @@
-body
-{
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -9,42 +8,39 @@ body
 }
 
 
-h1
-{
+h1 {
   font-size: 1.8em;
   @extend .blue-text, .text-darken-1;
 }
 
-.nav-wrapper
-{
+.nav-wrapper {
   @extend .blue, .accent-1;
-
-  ul
-  {
-    a
-    {
-       @extend  .blue-grey, .lighten-4;
+  ul {
+    a {
        @extend .white-text;
     }
   }
 }
 
-
-main
-{
+main {
   flex: 1 0 auto;
 }
 
-.page-footer
-{
+.page-footer {
   @extend .grey, .lighten-2;
-  a
-    {
+  a {
       @extend .white-text;
     }
-  .footer-copyright
-  {
+  .footer-copyright {
     @extend .white-text;
   }
+}
+
+.booking_form {
+  @extend .white;
+  height: 27em;
+  z-index: 100;
+  @include round-edges(1em);
+  margin-top: 4em;
 }
 
