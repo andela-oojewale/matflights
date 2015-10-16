@@ -20,6 +20,19 @@ h1 {
        @extend .white-text;
     }
   }
+  .dropdown-button {
+    margin-top:0.5em;
+  }
+  .dropdown-content {
+      position: relative;
+      margin-top: 4.2em;
+      width: 15em !important;
+    a {
+      @extend .blue-text, .text-darken-1;
+    }
+  }
+
+
 }
 
 main {
@@ -43,4 +56,5 @@ main {
   @include round-edges(1em);
   margin-top: 4em;
 }
+
 

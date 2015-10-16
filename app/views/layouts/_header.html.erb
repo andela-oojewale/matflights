@@ -10,8 +10,10 @@
         <%  else %>
         <li><%= session[:name] %></li>
         <li>
-          <%= get_user_image(session[:image]) %>
-          <ul>
+          <a class="dropdown-button" href="#" data-activates="dropdown1">
+            <%= get_user_image(session[:image]) %>
+          </a>
+          <ul id="dropdown1" class="dropdown-content">
             <li><%= link_to "Past booking" %></li>
             <li><%= link_to "Manage booking" %></li>
             <li><%= link_to "Logout", logout_path %></li>
