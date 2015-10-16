@@ -1,8 +1,28 @@
 <div class="booking_form col l6 offset-l3 s12">
-    <%= form_tag("/", method: "post", class: "row") do %>
-      <%= label_tag(:from, "From") %>
-      <%= text_field_tag('from', nil, class: "") %>
-      <%= label_tag(:to, "To") %>
-      <%= text_field_tag('to', nil, class: "") %>
-    <% end %>
+  <div class="row">
+    <%= form_tag("/", method: "post") do %>
+      <%= select_tag(:from,
+        options_for_select([["From", "#", {class: "disabled selected"}], ["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}] ]), {class: "browser-default col l6 s12 left"}
+      ) %>
+     <%= select_tag(:to,
+        options_for_select([["To", "#", {class: "disabled selected"}], ["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}],["Airport Name", "Airport_id", {class: "class_name"}] ]), {class: "browser-default col l5 offset-l1 s12 right"}
+      ) %>
+      <%= select_tag(:dept_date,
+        options_for_select([["Dept Date", "#", {class: "disabled selected"}], ["date"]]), {class: "browser-default col l6 left"}
+      ) %>
+      <%= select_tag(:return_date,
+        options_for_select([["Return Date", "#", {class: "disabled selected"}], ["date"]]), {class: "browser-default col l5 offset-l1 s12 left"}
+      ) %>
+      <%= select_tag(:adults,
+        options_for_select([["Adult(s)", "#", {class: "disabled selected"}], [1, 1, {class: "class_name"}],[2, 2, {class: "class_name"}],[3, 3, {class: "class_name"}],[4, 4, {class: "class_name"}], [5, 5, {class: "class_name"}] ]), {class: "browser-default col l4 left"}
+      ) %>
+      <%= select_tag(:children,
+        options_for_select([["Children", "#", {class: "disabled selected"}], [1, 1, {class: "class_name"}],[2, 2, {class: "class_name"}],[3, 3, {class: "class_name"}],[4, 4, {class: "class_name"}], [5, 5, {class: "class_name"}] ]), {class: "browser-default col l3 offset-l1 left"}
+      ) %>
+      <%= select_tag(:coach,
+        options_for_select([["Coach", "#", {class: "disabled selected"}], ["Economy", "Economy", {class: "class_name"}],["Business", "Business", {class: "class_name"}],["Executive", "Executive", {class: "class_name"}] ]), {class: "browser-default col l3 offset-l1 s4 right"}
+        )%>
+        <%= submit_tag("Search Flight")%>
+      <% end %>
+  </div>
   </div>
