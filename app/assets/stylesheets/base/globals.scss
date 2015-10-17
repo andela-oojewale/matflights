@@ -10,6 +10,9 @@ body {
 
 h1 {
   font-size: 1.8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
   @extend .blue-text, .text-darken-1;
 }
 
@@ -20,9 +23,10 @@ h1 {
        @extend .white-text;
     }
   }
-  .dropdown-button {
-    margin-top:0.5em;
+  img {
+     margin-top:0.5em;
   }
+
   .dropdown-content {
       position: relative;
       margin-top: 4.2em;
@@ -55,6 +59,10 @@ main {
   z-index: 100;
   @include round-edges(1em);
   margin-top: 4em;
+}
+
+.box-default {
+  border: 1px solid !important;
 }
 
 

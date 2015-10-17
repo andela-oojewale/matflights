@@ -5,20 +5,20 @@
       <a href="#" class="brand-logo col l6 offset-l1 s12">MatFlights</a>
       <ul class="right hide-on-med-and-down col l3 offset-l2 s12">
         <li><a class="" href="#">All Flights</a></li>
-        <% if !current_user %>
-          <li><a class="modal-trigger" href="#modal1">Login</a></li>
+        <% if current_user %>
+          <li>
+            <a class="dropdown-button" href="#" data-activates="dropdown1">
+              <%= session[:name] %>
+            </a>
+            <ul id="dropdown1" class="dropdown-content">
+              <li><%= link_to "Past booking" %></li>
+              <li><%= link_to "Manage booking" %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+          </li>
+          <li><%= get_user_image(session[:image]) %></li>
         <%  else %>
-        <li><%= session[:name] %></li>
-        <li>
-          <a class="dropdown-button" href="#" data-activates="dropdown1">
-            <%= get_user_image(session[:image]) %>
-          </a>
-          <ul id="dropdown1" class="dropdown-content">
-            <li><%= link_to "Past booking" %></li>
-            <li><%= link_to "Manage booking" %></li>
-            <li><%= link_to "Logout", logout_path %></li>
-          </ul>
-        </li>
+          <li><a class="modal-trigger" href="#modal1">Login</a></li>
         <% end %>
       </ul>
       </div>
