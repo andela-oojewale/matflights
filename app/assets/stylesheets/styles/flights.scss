@@ -6,9 +6,8 @@
   height: 40em;
   width: 100%;
   .booking_form {
-    @extend .black;
+    background: linear-gradient(#f1f8e9, #f9fbe7);
     position: absolute;
-    opacity:0.5;
     top: 6em;
   }
 }
