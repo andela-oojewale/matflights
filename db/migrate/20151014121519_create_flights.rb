@@ -2,6 +2,7 @@ class CreateFlights < ActiveRecord::Migration
   def change
     create_table :flights do |t|
       t.date :dept_time
+      t.date :return_time
       t.string :airline
       t.integer :cost
       t.integer :from_id
