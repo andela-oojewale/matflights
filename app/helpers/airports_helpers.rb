@@ -1,0 +1,3 @@
+module AirportsHelper
+
+end

@@ -4,3 +4,30 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+@mixin blue-links {
+  a {
+      @extend .blue-text, .text-darken-1;
+      &:hover {
+        @extend .blue, .darken-1;
+        @extend .white-text;
+      }
+  }
+}
+
+@mixin white-links {
+  a {
+       @extend .white-text;
+      &:hover {
+        @extend .white;
+        @extend .blue-text, .text-darken-1;
+      }
+  }
+}
+
+@mixin white-links-no-hover-bg {
+  a {
+       @extend .white-text;
+  }
+}
+

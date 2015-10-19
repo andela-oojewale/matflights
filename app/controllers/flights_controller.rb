@@ -8,4 +8,8 @@ class FlightsController < ApplicationController
 
   end
 
+  def search_flight
+    if
+  end
+
 end
