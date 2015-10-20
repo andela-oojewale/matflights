@@ -32,7 +32,7 @@ def set_flights(dist_in_hours, airports_list, airlines)
   dept_time = Time.at(Time.now.to_i + (24 * 60 * 60 * generate_rand(1,21)))
 
   from_id = airports_list.sample[:code]
-
+  # require "pry"; binding.pry
   to_id = airports_list.sample[:code] if airports_list.sample[:code] != from_id
   { dept_time: dept_time, airline: airline, cost: cost, from_id: from_id, to_id: to_id }
 end

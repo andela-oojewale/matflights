@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "flights#index"
+  root "flights#home"
 
   # get 'session/new'
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # get "logout" => "session#destroy", as: :logout
 
-
+  post "search" => "flights#search_flight"
 
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"

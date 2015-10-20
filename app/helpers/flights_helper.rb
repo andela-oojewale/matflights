@@ -9,7 +9,7 @@ module FlightsHelper
   end
 
   def get_all_airports(field_name, msg, class_desc)
-    collection_select :flight, field_name, Airport.all, :id, :name, {include_blank: msg}, {class: class_desc}
+    collection_select :flight, field_name, Airport.all, :code, :name, {include_blank: msg}, {class: class_desc}
   end
 
   def gen_select_opt(start, limit)

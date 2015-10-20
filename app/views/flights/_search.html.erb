@@ -1,8 +1,10 @@
 <div class="booking_form col l6 offset-l3 s12">
   <div class="row">
-
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
     <h3 class="col offset-l1"> Search for flights</h3>
-    <%= form_tag("/", method: "post") do %>
+    <%= form_tag("/search", method: "post") do %>
     <%= get_all_airports(
       :from_id,
       "Select Departure Airtport",
@@ -26,13 +28,13 @@
       { class: "box-default col l4 offset-l1 left"}
     )%>
     <%= date_field(
+      :flight,
       :dept_time,
-      "Departure Time",
       { class: "box-default col l4 offset-l1 left datepicker"}
     )%>
     <%= date_field(
+      :flight,
       :ret_time,
-      "Return Time",
       {class: "box-default col l4 offset-l1 left datepicker"}
     )%> <br/>
 
@@ -65,7 +67,7 @@
       "Search Flight",
       {
         class: "waves-effect waves-light btn blue col l5 offset-l2 left",
-        name= "search_flight"
+        name: "search_flight"
       }
     )%>
     <% end %>
