@@ -1,6 +1,8 @@
 $search-bg-color1: #f1f8e9;
 $search-bg-color2: #f9fbe7;
 
+.pagination a li.active { color: #fff; }
+
 body {
     display: flex;
     min-height: 100vh;

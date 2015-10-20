@@ -1,8 +1,7 @@
 class FlightsController < ApplicationController
 
   def index
-    # @flights_list = Flight.new.get_all_flights
-    # render index
+    @flights_list = Flight.new.get_all_flights.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
@@ -21,7 +20,7 @@ class FlightsController < ApplicationController
     unless search.empty?
 
     end
-      require "pry"; binding.pry
+      # require "pry"; binding.pry
     redirect_to root_url, notice: search
   end
 

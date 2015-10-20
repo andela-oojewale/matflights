@@ -27,5 +27,19 @@ module FlightsHelper
       )
   end
 
+  # def list_all_flights(flights_list)
+
+  #     flights_list.each do | a_flight |
+          # content_tag :tr
+  #       attributes = [ a_flight.id, a_flight.airline, a_flight.from_id, a_flight.to_id, a_flight.dept_time, a_flight.cost, "Book"]
+  #       counter = 0
+  #       while counter < 7
+  #        content_tag :td, attributes[counter]
+  #         counter += 1
+  #           # require "pry"; binding.pry
+  #       end
+
+  #   end
+  end
 
 end

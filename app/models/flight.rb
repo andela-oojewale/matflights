@@ -9,7 +9,7 @@ class Flight < ActiveRecord::Base
   end
 
   def get_all_flights
-    Flight.all.limit(20).order(cost: :asc)
+    Flight.all.order(cost: :asc)
   end
 
 end

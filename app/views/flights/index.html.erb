@@ -13,33 +13,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>$0.87</td>
-      </tr>
-       <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>$0.87</td>
-      </tr><div> <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td>$0.87</td>
-      </tr></div>
+      <% @flights_list.each do | a_flight | %>
+        <tr>
+        <% attributes = [ a_flight.id, a_flight.airline, a_flight.from_id, a_flight.to_id, a_flight.dept_time, a_flight.cost, "Book"] %>
+       <% counter = 0 %>
+        <% while counter < 7 %>
+          <td> <%= attributes[counter] %> </td>
+          <% counter += 1 %>
+          <% end %>
+        </tr>
+      <% end %>
     </tbody>
   </table>
  </div>
+ <%= will_paginate @flights_list %>
 </section>
