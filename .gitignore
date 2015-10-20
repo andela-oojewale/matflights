@@ -20,7 +20,7 @@ matflights.txt
 bashkeep.txt
 # Ignore application configuration
 /config/application.yml
-# Troublesome figaro.rb
+# Troublesome figaro file
 /config/initializers/figaro.rb
 
 
