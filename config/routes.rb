@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: "sessions#create"
   get '/auth/facebook', to: "sessions#create"
 
-  resources :flights
+  resources :flights, only: [:index, :create]
   get "/loggedin" => "flights#loggedin", as: :log
+  get "/index" => "flights#index", as: :index
 
   resources :bookings
 

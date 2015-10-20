@@ -1,8 +1,8 @@
 class FlightsController < ApplicationController
 
   def index
-    @flights_list = Flight.new.get_all_flights
-    render index
+    # @flights_list = Flight.new.get_all_flights
+    # render index
   end
 
   def show
