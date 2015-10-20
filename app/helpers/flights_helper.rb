@@ -40,6 +40,6 @@ module FlightsHelper
   #       end
 
   #   end
-  end
+  # end
 
 end
