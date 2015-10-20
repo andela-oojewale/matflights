@@ -1,0 +1,1 @@
+Figaro.require_keys("google_client_id", "google_secret", "fb_app_id","facebook_id")

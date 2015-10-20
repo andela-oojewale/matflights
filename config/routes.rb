@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "flights#index"
+  root "flights#home"
 
   # get 'session/new'
 
@@ -11,16 +11,18 @@ Rails.application.routes.draw do
 
   # get "logout" => "session#destroy", as: :logout
 
-
+  post "search" => "flights#search_flight"
 
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"
   get '/auth/:provider/callback', to: "sessions#create"
   get '/auth/facebook', to: "sessions#create"
 
-  resources :flights
+  resources :flights, only: [:create]
   get "/loggedin" => "flights#loggedin", as: :log
+  get "/index" => "flights#index", as: :index
 
+  resources :bookings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

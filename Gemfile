@@ -13,6 +13,8 @@ gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "pry"
 gem "puma"
+gem "will_paginate-materialize", "0.1.2"
+gem "figaro"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development, :test do

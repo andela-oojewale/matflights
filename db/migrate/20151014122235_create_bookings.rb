@@ -3,6 +3,7 @@ class CreateBookings < ActiveRecord::Migration
     create_table :bookings do |t|
       t.timestamp :booking_time
       t.integer :no_of_pass
+      t.date :return_time
       t.integer :adult
       t.integer :children
       t.integer :flight_id
