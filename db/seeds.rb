@@ -34,7 +34,8 @@ def set_flights(dist_in_hours, airports_id, airlines)
   dept_time = Time.at(Time.now.to_i + (24 * 60 * 60 * generate_rand(1,21)))
   from_id =  airports_id.sample
   to_id = airports_id.sample unless from_id == to_id
-  { dept_time: dept_time, airline: airline, cost: cost, from_id: from_id, to_id: to_id }
+  flight_id = "MF#{generate_rand(1,1000)}"
+  { dept_time: dept_time, airline: airline, cost: cost, from_id: from_id, to_id: to_id, flight_id: flight_id }
 end
 
 200.times do

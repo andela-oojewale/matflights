@@ -18,7 +18,8 @@ class FlightsController < ApplicationController
     dept_time  =  flight_params[:dept_time]
     valid_airports(from, to)
     search = Flight.new.get_flight(to, from , dept_time)
-    flash[:notice] = "No flights found. Please make another search." unless search.empty?
+    flash[:notice] = "No flights found. Please make another search." if search.empty?
+    # flash[:notice] = search if !search.nil?
     redirect_to root_url
   end
 
@@ -33,7 +34,7 @@ class FlightsController < ApplicationController
   end
 
   def  valid_airports(from, to)
-    if to == from
+    if to.to_i == from.to_i
       flash[:notice] = "Departure and Destination airports can not be the same."
     elsif to.empty? || from.empty?
       flash[:notice] = "Select your departure and destination airports."

@@ -1,4 +1,5 @@
 class AirportDecorator
+  attr_reader :airport
 
   def initialize(airport)
     @airport = airport
