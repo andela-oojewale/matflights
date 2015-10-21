@@ -21,21 +21,22 @@ airports_list = [
 
 ]
 
-airports_list.each { | airport | Airport.create(airport) }
+airports_id = []
+
+airports_list.each { | airport | airports_id << Airport.create(airport).id }
 
 airlines = [ { "Qatar Airways" => 100 }, { "Singapore Airlines" => 90 }, { "Cathay Pacific Airways" => 80 }, { "Turkish Airlines" => 70 }, { "Emirates" => 60 }, { "Etihad Airways" => 50 }, { "Lufthansa" => 40 }, { "Air France" => 30 }, { "British Airways" => 20 }, { "KLM" => 10 } ]
 
-def set_flights(dist_in_hours, airports_list, airlines)
+def set_flights(dist_in_hours, airports_id, airlines)
   rand_airline = airlines.sample
   airline = rand_airline.keys[0]
   cost = dist_in_hours * rand_airline[airline] * 755
   dept_time = Time.at(Time.now.to_i + (24 * 60 * 60 * generate_rand(1,21)))
-
-  from_id = airports_list.sample[:code]
-  to_id = airports_list.sample[:code] if airports_list.sample[:code] != from_id
+  from_id =  airports_id.sample
+  to_id = airports_id.sample unless from_id == to_id
   { dept_time: dept_time, airline: airline, cost: cost, from_id: from_id, to_id: to_id }
 end
 
 200.times do
-    Flight.create(set_flights((generate_rand(4,12)), airports_list, airlines))
+    Flight.create(set_flights((generate_rand(4,12)), airports_id, airlines))
   end

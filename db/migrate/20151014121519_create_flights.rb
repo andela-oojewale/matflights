@@ -4,8 +4,8 @@ class CreateFlights < ActiveRecord::Migration
       t.date :dept_time
       t.string :airline
       t.integer :cost
-      t.string :from_id
-      t.string :to_id
+      t.integer :from_id
+      t.integer :to_id
 
       t.timestamps null: false
     end

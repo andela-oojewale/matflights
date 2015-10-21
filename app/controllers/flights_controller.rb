@@ -20,7 +20,7 @@ class FlightsController < ApplicationController
     unless search.empty?
 
     end
-      # require "pry"; binding.pry
+
     redirect_to root_url, notice: search
   end
 
