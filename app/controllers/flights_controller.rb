@@ -16,12 +16,10 @@ class FlightsController < ApplicationController
     to = flight_params[:to_id]
     from = flight_params[:from_id]
     dept_time  =  flight_params[:dept_time]
+    valid_airports(from, to)
     search = Flight.new.get_flight(to, from , dept_time)
-    unless search.empty?
-
-    end
-
-    redirect_to root_url, notice: search
+    flash[:notice] = "No flights found. Please make another search." unless search.empty?
+    redirect_to root_url
   end
 
   def create
@@ -32,6 +30,14 @@ class FlightsController < ApplicationController
 
   def flight_params
       params.require(:flight).permit(:from_id, :to_id, :dept_time)
+  end
+
+  def  valid_airports(from, to)
+    if to == from
+      flash[:notice] = "Departure and Destination airports can not be the same."
+    elsif to.empty? || from.empty?
+      flash[:notice] = "Select your departure and destination airports."
+    end
   end
 
 end
