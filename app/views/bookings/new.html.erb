@@ -1,0 +1,34 @@
+<section class="main_container">
+  <%= content_tag :div, "", {class: "fight_container row pg_top_margin"}  do %>
+
+    <%= content_tag :div, "", { class: "info_box col l3 offset-l1 s12" }  do %>
+      <%= content_tag :div, "Flight Information", { class: "col s12" } %>
+      <%= content_tag :div, "#{'Flight ID'}", { class: "col s12" } %>
+      <%= content_tag :div, "#{'Departure Airport'}", { class: "col s12" } %>
+      <%= content_tag :div, "#{'Destination Airport'}", { class: "col s12" } %>
+      <%= content_tag :div, "#{'Flight Date'}", { class: "col s12" } %>
+      <%= content_tag :div, "#{'Total Cost'}", { class: "col s12" } %>
+    <% end %>
+
+
+
+    <%= form_tag(to_booking_path, method: "post", class: "col l6 offset-l5 s12 left" ) do %>
+      <%= content_tag :div, "", { class: "col s12" } do %>
+        <%= content_tag :div, "", { class: "pass_list" } do %>
+          <%= label_tag :name, "Name" %>
+          <%= text_field_tag :name, nil, { class: "validate", type: "text" } %>
+          <%= label_tag :email, "Email" %>
+          <%= text_field_tag :email, nil, { class: "validate", type: "email" } %>
+          <%= button_tag(type: "button",  class: "remove_pass btn blue" ) do%>
+            <%= content_tag :strong, "Remove passenger" %>
+          <% end %>
+          <% end %>
+          <%= button_tag(type: "button",  class: "add_more col btn blue left l5 s12" ) do%>
+            <%= content_tag :strong, "Add a passenger" %>
+          <% end %>
+          <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+</section>

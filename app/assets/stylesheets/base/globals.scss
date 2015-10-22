@@ -1,6 +1,8 @@
 $search-bg-color1: #f1f8e9;
 $search-bg-color2: #f9fbe7;
 
+.pagination a li.active { color: #fff; }
+
 body {
     display: flex;
     min-height: 100vh;
@@ -8,6 +10,9 @@ body {
     @extend .white;
     font: 100% Helvetica, sans-serif;
     @extend .grey-text, .text-darken-2;
+    .pg_top_margin {
+      margin-top: 1em;
+    }
 }
 
 
@@ -63,3 +68,24 @@ main {
 }
 
 
+.main_container {
+  min-height: 40em;
+  width: 100%;
+  .booking_form {
+    background: linear-gradient($search-bg-color1, $search-bg-color2);
+    position: absolute;
+    top: 6em;
+  }
+}
+
+.modal {
+  width: 45%;
+  padding: 0!important;
+}
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: relative;
+    left: 0;
+    margin: auto 1em;
+    visibility: visible;
+  }

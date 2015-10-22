@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     get_sessions(env["omniauth.auth"]) if env["omniauth.auth"]
-    Passenger.save_info(session[:provider], session[:user_id], session[:name], session[:email])
+    User.save_info(session[:provider], session[:user_id], session[:name], session[:email])
     redirect_to log_path
   end
 

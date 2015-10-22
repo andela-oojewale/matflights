@@ -1,14 +1,24 @@
-// Place all the styles related to the flights controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.home {
-  height: 40em;
-  width: 100%;
-  .booking_form {
-    background: linear-gradient($search-bg-color1, $search-bg-color2);
-    position: absolute;
-    top: 6em;
+.info_box {
+  z-index: 10;
+  border: 3px #82b1ff solid;
+  position: fixed;
+  @include round-edges(1em);
+  margin-top: 1em;
+  padding: 0 !important;
+  div:first-child {
+    margin: 0;
+    font-size: 2em;
+    @include round-top-edges(0.35em);
+    @extend .white-text;
+    @extend .blue, .accent-1;
   }
+  div {
+    margin: 0.5em;
+  }
+
 }
 
+.all_flight{
+  margin: auto;
+  width: 90%;
+}
