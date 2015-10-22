@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
   def new
+    if !current_user
+      flash[:notice] = "You have to login before you proceed."
+      redirect_to root_path :notice
+    end
   end
 
   def create

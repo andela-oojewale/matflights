@@ -4,10 +4,6 @@ module FlightsHelper
       image_tag(user_image, class: "circle responsive-img") if user_image
   end
 
-  def current_user
-    true if session[:user_id]
-  end
-
   def get_all_airports(field_name, msg, class_desc)
     collection_select :flight, field_name, Airport.all, :id, :name, {include_blank: msg}, {class: class_desc}
   end
