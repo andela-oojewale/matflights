@@ -1,6 +1,6 @@
 class Flight < ActiveRecord::Base
   has_many :bookings
-  has_many :passengers, through: :bookings
+  # has_many :passengers, through: :bookings
   belongs_to :from, class_name: "Airport"
   belongs_to :to, class_name: "Airport"
 
@@ -17,8 +17,6 @@ class Flight < ActiveRecord::Base
 
   def get_all_flights
     Flight.all.order(cost: :asc)
-    # Flight.joins('JOIN addresses ON addresses.client_id = clients.id')
-    # SELECT
   end
 
 end

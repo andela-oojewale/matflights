@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration
       t.integer :adult
       t.integer :children
       t.integer :flight_id
+      t.integer :passenger_id
 
       t.timestamps null: false
     end

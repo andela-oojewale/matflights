@@ -10,6 +10,9 @@ body {
     @extend .white;
     font: 100% Helvetica, sans-serif;
     @extend .grey-text, .text-darken-2;
+    .pg_top_margin {
+      margin-top: 1em;
+    }
 }
 
 
@@ -73,4 +76,9 @@ main {
     position: absolute;
     top: 6em;
   }
+}
+
+.modal {
+  width: 45%;
+  padding: 0!important;
 }
