@@ -4,7 +4,7 @@ Flight.destroy_all
 
 airports_list = [
   { name: "Murtala Muhammed International Airport", country: "Nigeria", city: "Lagos", code: "MF1" },
-  { name: "Nnamdi Azikwe International Airport", country: "Nigeria", city: "Lagos", code: "MF2" },
+  { name: "Nnamdi Azikwe International Airport", country: "Nigeria", city: "Abuja", code: "MF2" },
   { name: "John Lennon Airport", country: "England", city: "Liverpool", code: "MF3" },
   { name: "Manchester Airport", country: "England", city: "Manchester", code: "MF4" },
   { name: "Gatwick Airport", country: "England", city: "West Sussex", code: "MF5" },

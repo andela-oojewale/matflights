@@ -16,7 +16,7 @@ class Flight < ActiveRecord::Base
   end
 
   def get_all_flights
-    Flight.all.order(cost: :asc)
+    Flight.includes(:from, :to).order(cost: :asc)
   end
 
 end

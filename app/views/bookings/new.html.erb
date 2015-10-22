@@ -13,12 +13,15 @@
 
 
     <%= form_tag("/to_booking", method: "post", class: "col l6 offset-l5 s12 left" ) do %>
-      <%= content_tag :div, "", { class: "pass_form col s12" } do %>
-        <%= form_tag("/search", method: "post") do %>
+      <%= content_tag :div, "", { class: "col s12" } do %>
+        <%= content_tag :div, "", { class: "pass_list" } do %>
           <%= label_tag :name, "Name" %>
           <%= text_field_tag :name, nil, { class: "validate", type: "text" } %>
           <%= label_tag :email, "Email" %>
           <%= text_field_tag :email, nil, { class: "validate", type: "email" } %>
+          <%= button_tag(type: "button",  class: "remove_pass btn blue" ) do%>
+            <%= content_tag :strong, "Remove passenger" %>
+          <% end %>
           <% end %>
           <%= button_tag(type: "button",  class: "add_more col btn blue left l5 s12" ) do%>
             <%= content_tag :strong, "Add a passenger" %>

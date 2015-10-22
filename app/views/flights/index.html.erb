@@ -3,11 +3,11 @@
   <table class="bordered highlight">
     <thead>
       <tr>
-          <th data-field="id">Book</th>
+          <th data-field="id"></th>
           <th data-field="id">Airline</th>
           <th data-field="name">Departure Airport</th>
           <th data-field="price">Destination Airport</th>
-          <th data-field="name">Date of Flight</th>
+          <th data-field="name">Time of Flight</th>
           <th data-field="price">Price</th>
           <th data-field="price">Book</th>
       </tr>
@@ -15,7 +15,10 @@
     <tbody>
       <% @flights_list.each do | a_flight | %>
         <tr>
-        <% attributes = [a_flight.airline, a_flight.from_id, a_flight.to_id, a_flight.dept_time, a_flight.cost, "Book"] %>
+          <% date_of_departure = a_flight.dept_date %>
+          <% time_of_departure = a_flight.dept_time %>
+          <% flight_datetime = "#{date_of_departure} #{time_of_departure}" %>
+        <% attributes = [a_flight.airline, a_flight.from.name, a_flight.to.name, flight_datetime, a_flight.cost, "Book"] %>
        <% counter = 0 %>
        <td><%= radio_button_tag "choice", "Click to book", { style: { display: "block"} } %></td>
         <% while counter < 6 %>
