@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/index" => "flights#index", as: :index
 
   resource :bookings, only: [:show, :edit, :update, :destroy]
-  get "/book" => "bookings#new"
-  post "/to_booking" => "bookings#create"
+  get "book" => "bookings#new"
+  post "to_booking" => "bookings#create"
 
 end

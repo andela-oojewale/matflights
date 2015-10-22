@@ -46,7 +46,7 @@ end
 def set_flights_info(dist_in_hours, airports_id, airlines)
   rand_airline = airlines.sample
   airline = rand_airline.keys[0]
-  cost = dist_in_hours * rand_airline[airline] * 755
+  cost = dist_in_hours * rand_airline[airline] * 10
   flight_code = "MF#{generate_rand(1,400)}"
   locations = set_airports(airports_id)
   flight_datetime = set_flight_time
@@ -54,5 +54,5 @@ def set_flights_info(dist_in_hours, airports_id, airlines)
 end
 
 200.times do
-  Flight.create(set_flights_info((generate_rand(4,12)), airports_id, airlines))
+  Flight.create(set_flights_info((generate_rand(7,10)), airports_id, airlines))
 end

@@ -12,7 +12,7 @@
 
 
 
-    <%= form_tag("/to_booking", method: "post", class: "col l6 offset-l5 s12 left" ) do %>
+    <%= form_tag(to_booking_path, method: "post", class: "col l6 offset-l5 s12 left" ) do %>
       <%= content_tag :div, "", { class: "col s12" } do %>
         <%= content_tag :div, "", { class: "pass_list" } do %>
           <%= label_tag :name, "Name" %>
