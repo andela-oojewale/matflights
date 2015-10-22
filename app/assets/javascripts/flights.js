@@ -2,7 +2,7 @@ $(document).ready(function(){
         $(".slider").slider({full_width: true, height: "40em"});
         $(".modal-trigger").leanModal();
         $(".add_more").click(adder);
-        $(".remove_pass").click(remove_element);
+        // $(".remove_pass").click(remove_element);
       });
 
   function adder()
@@ -16,11 +16,11 @@ $(document).ready(function(){
     $(".pass_list").append(label1, textbox1, label2, textbox2, rem);
   }
 
-  function remove_element()
-  {
-    label = $(this).closest("label");
-    textbox = $(this).closest('input');
-    label.remove();
-    textbox.remove();
-    $(this).remove();
-  }
+  // function remove_element()
+  // {
+  //   label = $(this).closest("label");
+  //   textbox = $(this).closest('input');
+  //   label.remove();
+  //   textbox.remove();
+  //   $(this).remove();
+  // }
