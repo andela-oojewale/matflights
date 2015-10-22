@@ -16,7 +16,11 @@
       </li>
     </ul>
   </div>
-  <%= render partial: "search" %>
+  <%= render partial: "partials/search" %>
+  <% if @flights_list %>
+  <%=   require "pry"; binding.pry %>
+    <%= render partial: "partials/flights" %>
+  <% end %>
  </div>
 </section>
 <section class="other_info">

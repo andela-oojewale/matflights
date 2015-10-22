@@ -1,0 +1,34 @@
+ <div class="row">
+ <table class="bordered highlight all_flight">
+    <thead>
+      <tr>
+          <th data-field="id"></th>
+          <th data-field="id">Airline</th>
+          <th data-field="name">Departure Airport</th>
+          <th data-field="price">Destination Airport</th>
+          <th data-field="name">Time of Flight</th>
+          <th data-field="price">Price/Person</th>
+          <th data-field="price">Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @flights_list.each do | a_flight | %>
+        <tr>
+          <% date_of_departure = a_flight.dept_date %>
+          <% time_of_departure = a_flight.dept_time %>
+          <% flight_datetime = "#{date_of_departure} #{time_of_departure}" %>
+        <% attributes = [a_flight.airline, a_flight.from.name, a_flight.to.name, flight_datetime, number_to_currency(a_flight.cost)] %>
+       <% counter = 0 %>
+       <td><%= radio_button_tag "choice", "#{a_flight.id}", { style: { display: "block"} } %></td>
+        <% while counter < 5 %>
+          <td> <%= attributes[counter] %> </td>
+          <% counter += 1 %>
+          <% end %>
+          <td>
+            <%= link_to "Book", book_path(id: a_flight.id, dept: attributes[1], dest: attributes[2], flight_datetime: attributes[3], cost: attributes[4] ), class: "col btn blue" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+   </div>
