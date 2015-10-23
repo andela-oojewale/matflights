@@ -8,10 +8,10 @@ class Flight < ActiveRecord::Base
   validates :from_id, presence: true
 
   def get_flight(to, from , dept_time = nil)
-    if dept_time.nil?
-      Flight.select(:id, :airline, :dept_time, :from_id, :to_id, :cost).where( to_id: to, from_id: from)
+    if dept_time.nil? || dept_time == ""
+      Flight.includes(:from, :to).where( to_id: to, from_id: from)
     else
-      Flight.select(:id, :airline, :dept_time, :from_id, :to_id, :cost).where( to_id: to, from_id: from, dept_time: dept_time )
+      Flight.includes(:from, :to).where( to_id: to, from_id: from, dept_time: dept_time )
     end
   end
 

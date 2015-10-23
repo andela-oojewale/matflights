@@ -10,12 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "layouts/header" %>
+<%= render partial: "partials/header" %>
 
 
 <%= yield %>
 
-<%= render "layouts/footer" %>
+<%= render partial: "partials/footer" %>
 </body>
 
 </html>
