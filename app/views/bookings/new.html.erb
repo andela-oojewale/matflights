@@ -3,11 +3,11 @@
 
     <%= content_tag :div, "", { class: "info_box col l3 offset-l1 s12" }  do %>
       <%= content_tag :div, "Flight Information", { class: "col s12" } %>
-      <%= content_tag :div, "#{'Flight ID'}", { class: "col s12" } %>
-      <%= content_tag :div, "#{'Departure Airport'}", { class: "col s12" } %>
-      <%= content_tag :div, "#{'Destination Airport'}", { class: "col s12" } %>
-      <%= content_tag :div, "#{'Flight Date'}", { class: "col s12" } %>
-      <%= content_tag :div, "#{'Total Cost'}", { class: "col s12" } %>
+      <%= content_tag :div, "Flight id: #{params[:id]}", { class: "col s12" } %>
+      <%= content_tag :div, "Departure Airport: #{params[:dept]}", { class: "col s12" } %>
+      <%= content_tag :div, "Destination Airport: #{params[:dest]}", { class: "col s12" } %>
+      <%= content_tag :div, "Flight Date: #{params[:flight_datetime]}", { class: "col s12" } %>
+      <%= content_tag :div, "Total Cost: $#{params[:cost]}", { class: "total col s12" } %>
     <% end %>
 
 
@@ -23,7 +23,7 @@
             <%= content_tag :strong, "Remove passenger" %>
           <% end %>
           <% end %>
-          <%= button_tag(type: "button",  class: "add_more col btn blue left l5 s12" ) do%>
+          <%= button_tag(type: "button", value: "#{params[:cost]}",  class: "add_more col btn blue left l5 s12" ) do%>
             <%= content_tag :strong, "Add a passenger" %>
           <% end %>
           <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>
