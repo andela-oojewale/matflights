@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-
+  # attr_reader :flights_list
   def index
     @flights_list = Flight.new.get_all_flights.paginate(:page => params[:page], :per_page => 20)
   end
@@ -21,7 +21,21 @@ class FlightsController < ApplicationController
       flash[:notice] = "No flights found. Please make another search." if @flights_list.empty?
     end
     redirect_to root_url
+
   end
+
+  #  def home
+  #   if !@flights_list.nil?
+  #     @flights_list = @flights
+  #   end
+  # end
+
+  # def home
+  #   if @flights_list
+  #     search_flight
+  #   end
+
+  # end
 
   def create
 
