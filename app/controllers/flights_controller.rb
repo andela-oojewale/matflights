@@ -20,7 +20,7 @@ class FlightsController < ApplicationController
       @flights_list = Flight.new.get_flight(to, from , dept_time)
       flash[:notice] = "No flights found. Please make another search." if @flights_list.empty?
     end
-    redirect_to root_url
+    redirect_to search_path
 
   end
 
