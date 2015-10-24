@@ -10,9 +10,9 @@ class Flight < ActiveRecord::Base
 
   def get_flight(to, from , dept_time = nil)
     if dept_time.nil? || dept_time == ""
-      Flight.includes(:from, :to).where( to_id: to, from_id: from)
+      Flight.includes(:from, :to).where( to_id: to, from_id: from).order(cost: :asc)
     else
-      Flight.includes(:from, :to).where( to_id: to, from_id: from, dept_time: dept_time )
+      Flight.includes(:from, :to).where( to_id: to, from_id: from, dept_date: dept_time ).order(dept_date: :asc)
     end
   end
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "flights#home"
+  root "pages#index"
+
+  # get  "home" => "flights#home"
 
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"

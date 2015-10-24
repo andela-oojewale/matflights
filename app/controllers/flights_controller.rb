@@ -1,5 +1,4 @@
 class FlightsController < ApplicationController
-  # attr_reader :flights_list
   def index
     @flights_list = Flight.new.get_all_flights.paginate(:page => params[:page], :per_page => 20)
   end
@@ -27,9 +26,9 @@ class FlightsController < ApplicationController
     render "show_search"
   end
 
-  def home
-    return "show_search"
-  end
+  # def home
+  #   return "show_search"
+  # end
 
   # def home
   #   if @flights_list

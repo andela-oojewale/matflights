@@ -17,12 +17,13 @@
     </ul>
   </div>
   <%= render partial: "partials/search" %>
-  <% if @flights_list %>
-    <%= render partial: "partials/flights" %>
-  <% end %>
-
  </div>
 </section>
+ <% if @flights_list %>
+  <section class="fetched">
+    <%= render partial: "partials/flights" %>
+  </section>
+  <% end %>
 <section class="other_info">
  <div class="row">
     <div class="col l3 offset-l1 s12">
