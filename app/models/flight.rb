@@ -10,14 +10,23 @@ class Flight < ActiveRecord::Base
 
   def get_flight(to, from , dept_time = nil)
     if dept_time.nil? || dept_time == ""
-      Flight.includes(:from, :to).where( to_id: to, from_id: from)
+      Flight.includes(:from, :to).where( to_id: to, from_id: from).order(cost: :asc)
     else
-      Flight.includes(:from, :to).where( to_id: to, from_id: from, dept_time: dept_time )
+      Flight.includes(:from, :to).where( to_id: to, from_id: from, dept_date: dept_time ).order(dept_date: :asc)
     end
   end
 
   def get_all_flights
     Flight.includes(:from, :to).order(cost: :asc)
+  end
+
+  def search_flight(to, from , dept_time)
+    @flights_list = get_flight(to, from , dept_time)
+    if @flights_list.empty?
+      message = "No flights found. Please make another search."
+    else
+      message = @flights_list
+    end
   end
 
 end

@@ -18,6 +18,7 @@
 $(document).ready(function(){
   $(".slider").slider({full_width: true, height: "40em"});
   $(".modal-trigger").leanModal();
+  $(".fetched")[0].scrollIntoView();
   $(".add_more").click(adder);
   $(".remove_pass").click(remove_element);
 });

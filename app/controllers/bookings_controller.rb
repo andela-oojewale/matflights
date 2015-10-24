@@ -1,9 +1,7 @@
 class BookingsController < ApplicationController
+  before_filter :verify_login
   def new
-    if !current_user
-      flash[:notice] = "You have to login before you proceed."
-      redirect_to root_path :notice
-    end
+
   end
 
   def create
@@ -20,5 +18,14 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+  end
+
+  protected
+
+  def verify_login
+    if !current_user
+      flash[:notice] = "You have to login before you proceed."
+      redirect_to root_path :notice
+    end
   end
 end

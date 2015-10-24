@@ -1,5 +1,6 @@
 <section class="main_container">
  <div class="row">
+    <% if !current_user || @home %>
     <div class="slider">
     <ul class="slides">
       <li>
@@ -16,13 +17,15 @@
       </li>
     </ul>
   </div>
-  <%= render partial: "partials/search" %>
-  <% if @flights_list %>
-    <%= render partial: "partials/flights" %>
   <% end %>
-
+  <%= render partial: "partials/search" %>
  </div>
 </section>
+ <% if @flights_list %>
+  <section class="fetched">
+    <%= render partial: "partials/flights" %>
+  </section>
+  <% end %>
 <section class="other_info">
  <div class="row">
     <div class="col l3 offset-l1 s12">

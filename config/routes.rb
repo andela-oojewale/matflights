@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "flights#home"
+  root "pages#index"
+
+  # get  "home" => "flights#home"
 
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   resources :flights, only: [:create]
   get "/loggedin" => "flights#loggedin", as: :log
   get "/index" => "flights#index", as: :index
-  post "search" => "flights#search_flight"
+  post "search" => "flights#show"
   # match "search" => "flights#search_flight", via: [:get, :post]
 
 
