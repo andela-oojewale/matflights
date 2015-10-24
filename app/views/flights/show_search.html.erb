@@ -17,7 +17,9 @@
     </ul>
   </div>
   <%= render partial: "partials/search" %>
-
+  <% if @flights_list %>
+    <%= render partial: "partials/flights" %>
+  <% end %>
 
  </div>
 </section>
