@@ -1,0 +1,53 @@
+<section class="main_container">
+ <div class="row">
+    <div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag("bg1.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg2.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg3.jpg") %>
+      </li>
+      <li>
+        <%= image_tag("bg4.jpg") %>
+      </li>
+    </ul>
+  </div>
+  <%= render partial: "partials/search" %>
+  <% if @flights_list %>
+    <%= render partial: "partials/flights" %>
+  <% end %>
+
+ </div>
+</section>
+<section class="other_info">
+ <div class="row">
+    <div class="col l3 offset-l1 s12">
+      <h1>Best Price Guarantee</h1>
+      <p>
+        Find our lowest price to destinations worldwide, guaranteed.
+        Find our lowest price to destinations worldwide, guaranteed.
+        Find our lowest price to destinations worldwide, guaranteed.
+      </p>
+    </div>
+    <div class="col l3 offset-l1 s12">
+      <h1>Easy Booking</h1>
+      <p>
+        Search, select and save - the fastest way to book your trip.
+        Search, select and save - the fastest way to book your trip.
+        Search, select and save - the fastest way to book your trip.
+      </p>
+    </div>
+    <div class="col l3 offset-l1 s12">
+      <h1>24/7/365 Care Line</h1>
+      <p>
+        Get award-winning service  and special deals by calling 234-803-912-9437
+        Get award-winning service  and special deals by calling 234-803-912-9437
+        Get award-winning service  and special deals by calling 234-803-912-9437
+      </p>
+    </div>
+ </div>
+</section>

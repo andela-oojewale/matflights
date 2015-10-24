@@ -8,27 +8,28 @@ class FlightsController < ApplicationController
 
   end
 
-  def loggedin
-
-  end
-
   def search_flight
     to = flight_params[:to_id]
     from = flight_params[:from_id]
     dept_time  =  flight_params[:dept_time]
     if valid_airports(from, to).nil?
       @flights_list = Flight.new.get_flight(to, from , dept_time)
-      flash[:notice] = "No flights found. Please make another search." if @flights_list.empty?
+      if @flights_list.empty?
+        flash[:notice] = "No flights found. Please make another search."
+      else
+        return show_search(@flights_list)
+      end
     end
-    redirect_to search_path
-
+    redirect_to root_url
   end
 
-  #  def home
-  #   if !@flights_list.nil?
-  #     @flights_list = @flights
-  #   end
-  # end
+  def show_search(list)
+    render "show_search"
+  end
+
+  def home
+    return "show_search"
+  end
 
   # def home
   #   if @flights_list
