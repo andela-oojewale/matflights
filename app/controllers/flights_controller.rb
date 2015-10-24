@@ -1,41 +1,25 @@
 class FlightsController < ApplicationController
+
+  include Commons
+
   def index
     @flights_list = Flight.new.get_all_flights.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
-
-  end
-
-  def search_flight
     to = flight_params[:to_id]
     from = flight_params[:from_id]
     dept_time  =  flight_params[:dept_time]
     if valid_airports(from, to).nil?
-      @flights_list = Flight.new.get_flight(to, from , dept_time)
-      if @flights_list.empty?
-        flash[:notice] = "No flights found. Please make another search."
+      @flights_list = Flight.new.search_flight(to, from , dept_time)
+      if @flights_list.kind_of? String
+       flash[:notice] = @flights_list
       else
-        return show_search(@flights_list)
+        return show_search
       end
     end
     redirect_to root_url
   end
-
-  def show_search(list)
-    render "show_search"
-  end
-
-  # def home
-  #   return "show_search"
-  # end
-
-  # def home
-  #   if @flights_list
-  #     search_flight
-  #   end
-
-  # end
 
   def create
 

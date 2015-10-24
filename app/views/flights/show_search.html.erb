@@ -1,5 +1,6 @@
 <section class="main_container">
  <div class="row">
+    <% if !current_user || @home %>
     <div class="slider">
     <ul class="slides">
       <li>
@@ -16,6 +17,7 @@
       </li>
     </ul>
   </div>
+  <% end %>
   <%= render partial: "partials/search" %>
  </div>
 </section>

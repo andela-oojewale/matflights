@@ -20,4 +20,13 @@ class Flight < ActiveRecord::Base
     Flight.includes(:from, :to).order(cost: :asc)
   end
 
+  def search_flight(to, from , dept_time)
+    @flights_list = get_flight(to, from , dept_time)
+    if @flights_list.empty?
+      message = "No flights found. Please make another search."
+    else
+      message = @flights_list
+    end
+  end
+
 end
