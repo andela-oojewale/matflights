@@ -80,13 +80,14 @@ main {
   margin-top: 4em;
   label {
     height: 3.4em;
-    @extend .white;
+    background: transparent !important;
     padding-top: 1em !important;
     border-color: rgb(242, 242, 242) !important;
     border: 1px !important;
     color: rgb(97, 97, 97);
     margin-top: 0.35em;
     margin-bottom: 0.35em;
+    font-size: 1em !important;
   }
   input[type = "date"] {
     border-color: rgb(242, 242, 242) !important;

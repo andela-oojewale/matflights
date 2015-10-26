@@ -3,14 +3,13 @@
 
     <%= content_tag :div, "", { class: "info_box col l3 offset-l1 s12" }  do %>
       <%= content_tag :div, "Flight Information", { class: "col s12" } %>
-      <%= content_tag :div, "Flight id: #{params[:id]}", { class: "col s12" } %>
+      <%= content_tag :div, "Flight code: #{params[:code]}", { class: "col s12" } %>
       <%= content_tag :div, "Departure: #{params[:dept]}", { class: "col s12" } %>
       <%= content_tag :div, "Destination: #{params[:dest]}", { class: "col s12" } %>
       <%= content_tag :div, "Flight Date: #{params[:flight_datetime]}", { class: "col s12" } %>
       <%= content_tag :div, "Passenger(s): #{params[:pass]}", { class: "col s12" } %>
       <%= content_tag :div, "Cost/Passenger: $#{params[:cost]}", { class: "total col s12" } %>
       <%= content_tag :div, "Total Cost: $#{params[:cost].to_i * params[:pass].to_i}", { class: "total col s12" } %>
-      <%= text_field_tag :cost_tracker,nil, { class: "cost_tracker", type: "hidden", value: "#{params[:cost]}" } %>
     <% end %>
 
     <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | booking |  %>
@@ -23,7 +22,10 @@
           <%= passenger.label :email, "Email" %>
           <%= passenger.text_field :email, { class: "validate", type: "email" } %>
           <% end %>
+          <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
+          <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
           <% end %>
+
           <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>
         <% end %>
       <% end %>
