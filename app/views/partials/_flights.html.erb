@@ -1,5 +1,5 @@
- <div class="row">
- <table class="bordered highlight all_flight">
+<div class="row">
+  <table class="bordered highlight all_flight">
     <thead>
       <tr>
           <th data-field="id"></th>
@@ -25,10 +25,10 @@
           <% counter += 1 %>
           <% end %>
           <td>
-            <%= link_to "Book", book_path(id: a_flight.flight_code, dept: attributes[1], dest: attributes[2], flight_datetime: attributes[3], cost: a_flight.cost ), class: "col btn blue" %>
+            <%= link_to "Book", book_path(id: a_flight.flight_code, dept: attributes[1], dest: attributes[2], flight_datetime: attributes[3], cost: a_flight.cost, pass: "#{params[:passengers]}" ), class: "col btn blue" %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-   </div>
+</div>

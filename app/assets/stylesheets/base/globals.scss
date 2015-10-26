@@ -15,13 +15,32 @@ body {
     }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @extend .blue-text, .text-darken-1;
+}
 
 h1 {
   font-size: 1.8em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @extend .blue-text, .text-darken-1;
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.0em;
+}
+
+h5 {
+  font-size: 0.8em;
+}
+
+h6 {
+  font-size: 0.65em;
 }
 
 .nav-wrapper {
@@ -39,8 +58,6 @@ h1, h2, h3, h4, h5, h6 {
       width: 15em !important;
       @include blue-links;
   }
-
-
 }
 
 main {
@@ -61,6 +78,19 @@ main {
   z-index: 100;
   @include round-edges(1em);
   margin-top: 4em;
+  label {
+    height: 3.4em;
+    @extend .white;
+    padding-top: 1em !important;
+    border-color: rgb(242, 242, 242) !important;
+    border: 1px !important;
+    color: rgb(97, 97, 97);
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+  }
+  input[type = "date"] {
+    border-color: rgb(242, 242, 242) !important;
+  }
 }
 
 .box-default {

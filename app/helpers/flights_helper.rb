@@ -18,7 +18,7 @@ module FlightsHelper
     opt_arr
   end
 
-  def get_dropdown(field_name, start, limit = nil, msg, class_desc)
+  def get_dropdown(field_name, start, limit = nil, msg = nil, class_desc)
       select_tag(field_name, options_for_select( gen_select_opt(start, limit) ), {class: class_desc, prompt: msg}
       )
   end

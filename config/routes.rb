@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post "search" => "flights#show"
   # match "search" => "flights#search_flight", via: [:get, :post]
 
-
   resource :bookings, only: [:show, :edit, :update, :destroy]
   get "book" => "bookings#new"
   post "to_booking" => "bookings#create"
