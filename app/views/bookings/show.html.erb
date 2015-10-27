@@ -1,3 +1,19 @@
-<h2> Your flight details</h2>
-<h4>Total Cost:</h4>
-<h4>Number of passengers:</h4>
+<section class="other_container">
+  <div class ="row">
+    <div class="col offset-l1 l8 s12">
+      <h2>Flight successfully booked.</h2>
+       <h2>Find flight information below.</h2>
+      <h4>Airline:</h4>
+      <h4>Departure:</h4>
+      <h4>Destination:</h4>
+      <h4>Flight Time:</h4>
+      <h4>Total Cost:</h4>
+      <h4>Number of passenger(s):</h4>
+      <h4><strong>Passenger(s)</strong></h4>
+    </div>
+    </div>
+  <div class ="row">
+    <%= submit_tag( "Pay with Paypal", {class: "btn blue col l2 offset-l1 left s12"}) %>
+    <%= link_to "Go to My Account", log_path, class: "col btn blue offset-l1" %>
+  </div>
+</section>

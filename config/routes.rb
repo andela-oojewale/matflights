@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "pages#index"
 
-  # get  "home" => "flights#home"
-
   resources :sessions, only: [:destroy, :show]
   get "logout" => "sessions#destroy"
   get '/auth/:provider/callback', to: "sessions#create"
@@ -12,10 +10,10 @@ Rails.application.routes.draw do
   get "/loggedin" => "flights#loggedin", as: :log
   get "/index" => "flights#index", as: :index
   post "search" => "flights#show"
-  # match "search" => "flights#search_flight", via: [:get, :post]
 
   resource :bookings, only: [:show, :edit, :update, :destroy]
   get "book" => "bookings#new"
   post "to_booking" => "bookings#create"
+  get "bookings" => "bookings#index"
 
 end

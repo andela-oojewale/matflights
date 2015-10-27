@@ -22,6 +22,11 @@
           <%= passenger.label :email, "Email" %>
           <%= passenger.text_field :email, { class: "validate", type: "email" } %>
           <% end %>
+          <%= booking.hidden_field :flight_info, value: "#{[
+            departure: params[:dept],
+
+            cost: params[params[:cost].to_i * params[:pass].to_i],
+          ]}" %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
           <% end %>

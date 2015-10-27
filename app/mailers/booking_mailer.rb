@@ -1,9 +1,11 @@
 class BookingMailer < ApplicationMailer
-  def booking_details(user, flight_id)
-    @user = user
+  def booking_details(name, email, flight_id)
+    @name = name
     @flight_id = flight_id
-    if @user.email
-      mail( to: @user.email, subject: "Your Booking Details")
+    @email = email
+
+    if @email
+      mail( to: @email, subject: "Your Booking Details")
     else
       mail( to: "olaide.ojewale@andela.com", subject: "Your Booking Details")
     end

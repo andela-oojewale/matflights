@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
   before_filter :verify_login
 
-  # attr_reader :booking, :flight_id
+  def index
+
+  end
 
   def new
     @booking = Booking.new
@@ -9,24 +11,24 @@ class BookingsController < ApplicationController
     num_of_passenger.to_i.times do
       @booking.passengers.new
     end
+    booking_info
+    # require "pry"; binding.pry
   end
 
   def create
     @booking = Booking.new(booking_params)
-      if @booking
-        # .save
-        flash[:notice] = "Your booking has been successfully saved."
-        @user = User.new
-        BookingMailer.booking_details(@user, booking_params[:flight_id]).deliver_now
-        # format.html { redirect_to(@user, notice: "Booking has been successfully made.") }
+      if @booking# .save
+
+        info = JSON.generate({
+            name: session[:name],
+            email: session[:email],
+            flight_id: booking_params[:flight_id]
+        })
+        # PostmanWorker.perform_async(info,5)
+        render "show"
       else
         redirect_to log_path, notice: "Booking failed. Please try again."
       end
-
-    # Code for mailer
-    # BookingMailer.booking_details(@user).deliver_now
-    # format.html { redirect_to(@user, notice: "Booking has been successfully made.") }
-
   end
 
   def show
@@ -52,6 +54,16 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:no_of_passengers, :flight_id, passengers_attributes: [:name, :email, :_destroy])
+    params.require(:booking).permit(:no_of_passengers, :flight_id, :airline, passengers_attributes: [:name, :email, :_destroy])
   end
+
+  def booking_info
+    session[:no_of_passengers] = params[:pass]
+    session[:dept] = params[:dept]
+    session[:dest] = params[:dest]
+    session[:flight_time] = params[:flight_datetime]
+    session[:airline] = params[:airline]
+  end
+
+
 end
