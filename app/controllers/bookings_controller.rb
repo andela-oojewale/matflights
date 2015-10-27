@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_filter :verify_login
 
-  attr_reader :booking
+  # attr_reader :booking, :flight_id
 
   def new
     @booking = Booking.new
@@ -13,8 +13,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-      if @booking.save
+      if @booking
+        # .save
         flash[:notice] = "Your booking has been successfully saved."
+        @user = User.new
+        BookingMailer.booking_details(@user, booking_params[:flight_id]).deliver_now
+        # format.html { redirect_to(@user, notice: "Booking has been successfully made.") }
       else
         redirect_to log_path, notice: "Booking failed. Please try again."
       end
