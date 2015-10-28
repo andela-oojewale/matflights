@@ -18,9 +18,9 @@
       <%= booking.fields_for :passengers do | passenger | %>
         <%= content_tag :div, "", { class: "pass_list" } do %>
           <%= passenger.label :name, "Name" %>
-          <%= passenger.text_field :name, { class: "validate", type: "text" } %>
+          <%= passenger.text_field :name, { class: "validate", type: "text", required: "required" } %>
           <%= passenger.label :email, "Email" %>
-          <%= passenger.text_field :email, { class: "validate", type: "email" } %>
+          <%= passenger.text_field :email, { class: "validate", type: "email", required: "required" } %>
           <% end %>
           <%= booking.hidden_field :flight_info, value: "#{[
             departure: params[:dept],
@@ -29,6 +29,7 @@
           ]}" %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
+          <%= booking.hidden_field :confirmation_code, value: "#{generate_rand(0001, 1000)}" %>
           <% end %>
 
           <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>

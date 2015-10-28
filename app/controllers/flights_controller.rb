@@ -35,11 +35,4 @@ class FlightsController < ApplicationController
       params.require(:flight).permit(:from_id, :to_id, :dept_time, :ret_time)
   end
 
-  # def flight_info
-  #   session[:no_of_passengers] =
-  #   session[:dept] =
-  #   session[:dest] =
-  #   session[:flight_time] = flight_params[:dept_time]
-  # end
-
 end

@@ -3,8 +3,10 @@ class Booking < ActiveRecord::Base
   accepts_nested_attributes_for :passengers, reject_if: lambda { |attributes| attributes["name"].blank? || attributes["email"].blank? }
   belongs_to :flight
 
-  def get_all_bookings
-    select(:id, :no_of_passengers).includes(:flight_id).where(user_code: session[:user_id], provider: session[:provider], email: session[:email])
+  validates :confirmation_code, presence: true, uniqueness: true
+
+  def get_all_bookings(user_id, provider, email)
+    Booking.includes(:flight).where(user_code: user_id, provider: provider, email: email)
   end
 
 end
