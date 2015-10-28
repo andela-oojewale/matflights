@@ -23,4 +23,8 @@ module FlightsHelper
       )
   end
 
+  def get_booking_params(flight, attributes)
+    { id: flight.id, code: flight.flight_code, dept: attributes[1], dest: attributes[2], flight_datetime: attributes[3], cost: flight.cost, pass: "#{params[:passengers]}", airline: attributes[0] }
+  end
+
 end

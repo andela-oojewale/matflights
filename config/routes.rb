@@ -15,6 +15,5 @@ Rails.application.routes.draw do
   get "book" => "bookings#new"
   post "to_booking" => "bookings#create"
   get "my_bookings" => "bookings#index"
-  # get "bookings" => "bookings#index"
 
 end

@@ -24,7 +24,6 @@ class BookingsController < ApplicationController
       if booking #.save
         @confirmation_code = booking_params[:confirmation_code]
         @passengers_list = booking_params[:passengers_attributes]
-        # require "pry"; binding.pry
         info = JSON.generate({
             name: session[:name],
             email: session[:email],
