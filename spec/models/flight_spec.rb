@@ -14,18 +14,18 @@ RSpec.describe Flight, type: :model do
     it { is_expected.to be_invalid }
   end
 
-  describe "#get_flight" do
-    let(:dept_time){""}
-    it "should be invalid" do
-      expect(Flight.new.get_flight(to, from , dept_time)).to be_valid
-    end
-  end
+  # describe "#get_flight" do
+  #   let(:dept_time){""}
+  #   it "should be invalid" do
+  #     expect(Flight.new.get_flight(to, from , dept_time)).to be_valid
+  #   end
+  # end
 
-  describe "#get_flight" do
-    let(:dept_time){"2015-10-28"}
-    it "should be invalid" do
-      expect(Flight.new.get_flight(to, from , dept_time)).to be_valid
-    end
-  end
+  # describe "#get_flight" do
+  #   let(:dept_time){"2015-10-28"}
+  #   it "should be invalid" do
+  #     expect(Flight.new.get_flight(to, from , dept_time)).to be_valid
+  #   end
+  # end
 
 end
