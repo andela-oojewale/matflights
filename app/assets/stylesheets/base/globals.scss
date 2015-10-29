@@ -29,6 +29,10 @@ h2 {
 
 h3 {
   font-size: 1.2em;
+  &.flasher {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
 
 h4 {

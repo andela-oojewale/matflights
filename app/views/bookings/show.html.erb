@@ -30,8 +30,7 @@
       </tbody>
     </table>
     <br/>
-
-    <%= link_to "Pay with Paypal", @booking.paypal_url(log_path, session[:total_cost], @passengers_list), class: "btn blue col l4 left s12" %>
+    <%= link_to "Pay with Paypal", @booking.paypal_url("bookings/payment", session[:total_cost], @passengers_list), class: "btn blue col l4 left s12" %>
     <%= link_to "Go to My Account", log_path, class: "col btn blue right" %>
   </div>
     </div>

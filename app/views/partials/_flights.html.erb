@@ -19,7 +19,7 @@
       <% end %>
       <td>
         <% url_query = get_booking_params(a_flight, attributes)%>
-        <%= link_to "Book", book_path(url_query), class: "col btn blue" %>
+        <%= link_to "Book", book_path(url_query), class: "col btn blue booker" %>
       </td>
     </tr>
   <% end %>

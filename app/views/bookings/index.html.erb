@@ -1,9 +1,7 @@
 <section class="other_container row">
   <div class="col offset-l1 l10 s12">
     <h2>Past bookings</h2>
-    <% flash.each do | name, msg | %>
-      <%= content_tag :h3, msg, class: [name] %>
-    <% end %>
+      <%= render partial: "partials/flash"%>
     <% if @no_record %>
       <h3> You have no past bookings </h3>
     <% else %>
@@ -25,8 +23,9 @@
           <% counter += 1 %>
           <% end %>
           <td>
-
-            <%= link_to "Cancel Booking", cancel_path(id: booking["id"]), class: "col btn blue" %>
+            <% if Date.today < Date.parse(attributes[3]) %>
+              <%= link_to "Cancel Booking", cancel_path(id: booking["id"]), class: "col btn blue" %>
+              <% end %>
           </td>
         </tr>
         <% end %>

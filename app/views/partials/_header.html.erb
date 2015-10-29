@@ -10,7 +10,7 @@
              <%= link_to raw("<i class='fa fa-caret-down right'></i> #{session[:name]}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1"} } %>
             <ul id="dropdown1" class="dropdown-content">
               <li><%= link_to "Past booking", my_bookings_path %></li>
-              <li><%= link_to "Manage booking" %></li>
+              <li><%= link_to "Manage booking", edit_path %></li>
               <li><%= link_to "Logout", logout_path %></li>
             </ul>
           </li>

@@ -1,6 +1,5 @@
 <section class="main_container">
   <%= content_tag :div, "", {class: "fight_container row pg_top_margin"}  do %>
-
     <%= content_tag :div, "", { class: "info_box col l3 offset-l1 s12" }  do %>
       <%= content_tag :div, "Flight Information", { class: "col s12" } %>
       <%= content_tag :div, "Flight code: #{params[:code]}", { class: "col s12" } %>
@@ -13,6 +12,7 @@
     <% end %>
 
     <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | booking |  %>
+     <%= render partial: "partials/flash"%>
       <%= content_tag :div, "", { class: "col s12" } do %>
 
       <%= booking.fields_for :passengers do | passenger | %>
@@ -22,13 +22,9 @@
           <%= passenger.label :email, "Email" %>
           <%= passenger.text_field :email, { class: "validate", type: "email", required: "required" } %>
           <% end %>
-          <%= booking.hidden_field :flight_info, value: "#{[
-            departure: params[:dept],
-
-            cost: params[params[:cost].to_i * params[:pass].to_i],
-          ]}" %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
+          <%= booking.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
           <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
           <%= booking.hidden_field :confirmation_code, value: "#{generate_rand(0001, 1000)}" %>
           <% end %>

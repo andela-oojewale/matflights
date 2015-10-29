@@ -1,9 +1,7 @@
 <div class="booking_form col l6 offset-l3 s12">
   <div class="row">
-    <h1 class="col offset-l1"> Search for flights</h1>
-    <% flash.each do | name, msg | %>
-      <%= content_tag :h3, msg, class: [name, "col offset-l1"] %>
-    <% end %>
+    <h1 class="col offset-l1 l11"> Search for flights</h1>
+    <%= render partial: "partials/flash"%>
     <%= form_tag("/search", method: "get", class: "searcher") do %>
     <%= get_all_airports(
       :from_id,
