@@ -4,9 +4,10 @@ class BookingsController < ApplicationController
   include Commons
 
   def index
-    @booking = Booking.new
-    bookings = @booking.get_all_bookings(session[:user_id], session[:provider], session[:email])
-
+    booking = Booking.new
+    @bookings = booking.get_all_bookings(session[:user_id])
+    @no_record = true if @bookings.empty?
+    render :index
   end
 
   def new
@@ -21,7 +22,7 @@ class BookingsController < ApplicationController
   def create
     booking = Booking.new(booking_params)
     @booking = BookingPresenter.new(booking)
-      if booking #.save
+      if booking.save
         @confirmation_code = booking_params[:confirmation_code]
         @passengers_list = booking_params[:passengers_attributes]
         info = JSON.generate({
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
         # PostmanWorker.perform_async(info,2)
         render "show"
       else
-        redirect_to log_path, notice: "Booking failed. Please try again."
+        redirect_to book_path, notice: "Booking failed. Please try again."
       end
   end
 
@@ -43,6 +44,15 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    booking = Booking.new
+    booking_id = params[:id]
+    rows = booking.delete_record(booking_id)
+    if rows > 0
+      flash[:notice] = "#{rows} booking cancelled successfully."
+    else
+      flash[:notice] = "Unable to cancel the booking, please contact the admin."
+    end
+    redirect_to my_bookings_path
   end
 
   protected
@@ -55,7 +65,16 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:no_of_passengers, :flight_id, :confirmation_code, passengers_attributes: [:name, :email, :_destroy])
-  end
+    params.require(:booking).
+    permit( :no_of_passengers,
+            :flight_id,
+            :confirmation_code,
+            :customer_id,
+            passengers_attributes:
+                                [:name,
+                                 :email,
+                                 :_destroy
+                                ] )
+    end
 
 end

@@ -4,7 +4,7 @@
     <% flash.each do | name, msg | %>
       <%= content_tag :h3, msg, class: [name, "col offset-l1"] %>
     <% end %>
-    <%= form_tag("/search", method: "post", class: "searcher") do %>
+    <%= form_tag("/search", method: "get", class: "searcher") do %>
     <%= get_all_airports(
       :from_id,
       "Select Departure Airtport",

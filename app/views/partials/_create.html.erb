@@ -21,12 +21,10 @@
   <%= render partial: "partials/search" %>
  </div>
 </section>
- <% if @flights_list %>
-  <section class="fetched" id="flight">
-    <%= render partial: "partials/flights" %>
-  </section>
-  <% end %>
-<section class="other_info">
+<section class="fetched" id="flight">
+  <%= render partial: "partials/flights" %>
+</section>
+ <section class="other_info">
  <div class="row">
     <div class="col l3 offset-l1 s12">
       <h1>Best Price Guarantee</h1>

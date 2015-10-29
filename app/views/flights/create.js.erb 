@@ -1,0 +1,2 @@
+$("#flight").append("<%= j render(partial: 'partials/_create') %>")
+$("#flight").slideDown(350);

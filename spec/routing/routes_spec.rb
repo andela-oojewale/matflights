@@ -27,24 +27,28 @@ RSpec.describe "Routes", type: :routing do
     )
   end
 
-  it "routes root path to pages controller and index action" do
+  it "routes root path to flights controller and index action" do
     expect(get("/loggedin")).to route_to("flights#loggedin")
   end
 
-  it "routes root path to pages controller and index action" do
+  it "routes root path to flights controller and index action" do
     expect(get("/index")).to route_to("flights#index")
   end
 
-  it "routes root path to pages controller and index action" do
-    expect(post("/search")).to route_to("flights#show")
+  it "routes root path to flights controller and show action" do
+    expect(get("/search")).to route_to("flights#search")
   end
 
-  it "routes root path to pages controller and index action" do
+  it "routes root path to bookings controller and new action" do
     expect(get("/book")).to route_to("bookings#new")
   end
 
-  it "routes root path to pages controller and index action" do
+  it "routes root path to bookings controller and create action" do
     expect(post("/to_booking")).to route_to("bookings#create")
+  end
+
+  it "routes root path to bookings controller and index action" do
+    expect(get("/my_bookings")).to route_to("bookings#index")
   end
 
 end

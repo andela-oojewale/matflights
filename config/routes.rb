@@ -6,14 +6,15 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: "sessions#create"
   get '/auth/facebook', to: "sessions#create"
 
-  resources :flights, only: [:create]
+  resources :flights, only: [:show]
   get "/loggedin" => "flights#loggedin", as: :log
   get "/index" => "flights#index", as: :index
-  post "search" => "flights#show"
+  get "search" => "flights#search"
 
-  resource :bookings, only: [:show, :edit, :update, :destroy]
+  resource :bookings, only: [:show, :edit, :update]
   get "book" => "bookings#new"
   post "to_booking" => "bookings#create"
   get "my_bookings" => "bookings#index"
+  get "cancel" => "bookings#destroy"
 
 end

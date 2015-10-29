@@ -1,6 +1,6 @@
 class Flight < ActiveRecord::Base
 
-  has_many :bookings
+  has_many :bookings, class_name: "Booking", foreign_key: :flight_id
   has_many :passengers, through: :bookings
 
   belongs_to :from, class_name: "Airport"

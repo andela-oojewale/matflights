@@ -29,6 +29,7 @@
           ]}" %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
+          <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
           <%= booking.hidden_field :confirmation_code, value: "#{generate_rand(0001, 1000)}" %>
           <% end %>
 

@@ -18,6 +18,8 @@ gem "will_paginate-materialize", "0.1.2"
 gem "figaro"
 gem "metric_fu"
 gem "sidekiq"
+gem "mocha"
+gem "responders", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development, :test do

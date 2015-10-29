@@ -1,35 +1,26 @@
-<div class="row">
-  <table class="bordered highlight all_flight">
-    <thead>
-      <tr>
-          <th data-field="id"></th>
-          <th data-field="airline">Airline</th>
-          <th data-field="dept">Departure Airport</th>
-          <th data-field="dest">Destination Airport</th>
-          <th data-field="time">Time of Flight</th>
-          <th data-field="price">Price/Person</th>
-          <th data-field="book">Book</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @flights_list.each do | a_flight | %>
-        <tr>
-          <% date_of_departure = a_flight.dept_date %>
-          <% time_of_departure = a_flight.dept_time %>
-          <% flight_datetime = "#{date_of_departure} #{time_of_departure}" %>
-        <% attributes = [a_flight.airline, a_flight.from.name, a_flight.to.name, flight_datetime, number_to_currency(a_flight.cost)] %>
-       <% counter = 0 %>
-       <td><%= radio_button_tag "choice", "#{a_flight.id}", { style: { display: "block"} } %></td>
-        <% while counter < 5 %>
-          <td> <%= attributes[counter] %> </td>
-          <% counter += 1 %>
-          <% end %>
-          <td>
-            <% url_query = get_booking_params(a_flight, attributes)%>
-            <%= link_to "Book", book_path(url_query), class: "col btn blue" %>
-          </td>
-        </tr>
+<%= render partial: "partials/table_header" %>
+  <% @flights_list.each do | a_flight | %>
+    <tr>
+      <% date_of_departure = a_flight.dept_date %>
+      <% time_of_departure = a_flight.dept_time %>
+      <% flight_datetime = "#{date_of_departure} #{time_of_departure}" %>
+    <% attributes =
+        [ a_flight.airline,
+        a_flight.from.name,
+        a_flight.to.name,
+        flight_datetime,
+        number_to_currency(a_flight.cost)
+        ] %>
+   <% counter = 0 %>
+   <td><%= radio_button_tag "choice", "#{a_flight.id}", { style: { display: "block"} } %></td>
+    <% while counter < 5 %>
+      <td> <%= attributes[counter] %> </td>
+      <% counter += 1 %>
       <% end %>
-    </tbody>
-  </table>
-</div>
+      <td>
+        <% url_query = get_booking_params(a_flight, attributes)%>
+        <%= link_to "Book", book_path(url_query), class: "col btn blue" %>
+      </td>
+    </tr>
+  <% end %>
+<%= render partial: "partials/table_base" %>
