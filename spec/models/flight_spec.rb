@@ -19,7 +19,6 @@ RSpec.describe Flight, type: :model do
     it "should be invalid" do
       expect(Flight.new.get_flight(to, from , dept_time)).to be_valid
     end
-      require "pry"; binding.pry
   end
 
   describe "#get_flight" do
