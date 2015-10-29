@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20151022060213) do
+ActiveRecord::Schema.define(version: 20151028165831) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "name"
@@ -10,15 +10,13 @@ ActiveRecord::Schema.define(version: 20151022060213) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "booking_time"
-    t.integer  "no_of_pass"
+    t.integer  "no_of_passengers"
     t.date     "return_time"
-    t.integer  "adult"
-    t.integer  "children"
     t.integer  "flight_id"
-    t.integer  "passenger_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "confirmation_code"
+    t.string   "customer_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -41,11 +39,11 @@ ActiveRecord::Schema.define(version: 20151022060213) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "booking_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "string"
     t.string   "email"
     t.string   "provider"
     t.string   "user_code"

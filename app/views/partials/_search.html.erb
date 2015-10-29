@@ -1,10 +1,8 @@
 <div class="booking_form col l6 offset-l3 s12">
   <div class="row">
-    <h3 class="col offset-l1"> Search for flights</h3>
-    <% flash.each do | name, msg | %>
-      <%= content_tag :h6, msg, class: [name, "col offset-l1"] %>
-    <% end %>
-    <%= form_tag("/search", method: "post", class: "searcher") do %>
+    <h1 class="col offset-l1 l11"> Search for flights</h1>
+    <%= render partial: "partials/flash"%>
+    <%= form_tag("/search", method: "get", class: "searcher") do %>
     <%= get_all_airports(
       :from_id,
       "Select Departure Airtport",
@@ -38,37 +36,20 @@
       {class: "box-default col l4 offset-l1 left datepicker"}
     )%> <br/>
 
-    <%= get_dropdown(
-      :adults,
-      1,
-      5,
-      "Adult(s)",
-      "browser-default col l2 offset-l1 left"
+    <%= label_tag(
+      :passengers,
+      "Passengers",
+      { class: "box-default col l2 offset-l1 left"}
     )%>
 
     <%= get_dropdown(
-      :children,
+      :passengers,
       1,
-      5,
-      "Children",
-      "browser-default col l3 offset-l1 left")
-    %>
+      10,
+      "browser-default col l2 offset-l1 left"
+    )%>
 
-    <%= select_tag(
-      :class,
-      options_for_select([
-        ["Economy", "Economy", {class: "class_name"}],
-        ["Business", "Business", {class: "class_name"}],
-        ["Executive", "Executive", {class: "class_name"}]
-      ]),
-      {class: "browser-default col l2 offset-l1 left", prompt: "Class"}
-    )%> <br/>
-    <p class="col offset-l1 left">
-    <button class="btn waves-effect waves-light blue " type="submit" name="search_flight" id="src_btn">Search Flight
-      <i class="material-icons right">send</i>
-    </button>
-  </p>
-
+  <button class="btn waves-effect waves-light blue col offset-l1 l3" type="submit" name="search_flight" id="src_btn">Search Flight</button>
   <% end %>
   </div>
   </div>

@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  include Commons
+
   def new
 
   end
@@ -13,16 +15,6 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     redirect_to root_url
-  end
-
-  private
-
-  def get_sessions(auth_param)
-    session[:provider] = auth_param[:provider]
-    session[:user_id] = auth_param[:uid]
-    session[:name] = auth_param[:info][:name]
-    session[:email] = auth_param[:info][:email]
-    session[:image] = auth_param[:info][:image]
   end
 
 end

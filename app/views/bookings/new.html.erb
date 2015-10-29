@@ -1,30 +1,34 @@
 <section class="main_container">
   <%= content_tag :div, "", {class: "fight_container row pg_top_margin"}  do %>
-
     <%= content_tag :div, "", { class: "info_box col l3 offset-l1 s12" }  do %>
       <%= content_tag :div, "Flight Information", { class: "col s12" } %>
-      <%= content_tag :div, "Flight id: #{params[:id]}", { class: "col s12" } %>
+      <%= content_tag :div, "Flight code: #{params[:code]}", { class: "col s12" } %>
       <%= content_tag :div, "Departure: #{params[:dept]}", { class: "col s12" } %>
       <%= content_tag :div, "Destination: #{params[:dest]}", { class: "col s12" } %>
       <%= content_tag :div, "Flight Date: #{params[:flight_datetime]}", { class: "col s12" } %>
-      <%= content_tag :div, "Total Cost: $#{params[:cost]}", { class: "total col s12" } %>
-      <%= text_field_tag :cost_tracker,nil, { class: "cost_tracker", type: "hidden", value: "#{params[:cost]}" } %>
+      <%= content_tag :div, "Passenger(s): #{params[:pass]}", { class: "col s12" } %>
+      <%= content_tag :div, "Cost/Passenger: $#{params[:cost]}", { class: "total col s12" } %>
+      <%= content_tag :div, "Total Cost: $#{params[:cost].to_i * params[:pass].to_i}", { class: "total col s12" } %>
     <% end %>
 
-    <%= form_tag(to_booking_path, method: "post", class: "col l6 offset-l5 s12 left" ) do %>
+    <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | booking |  %>
+     <%= render partial: "partials/flash"%>
       <%= content_tag :div, "", { class: "col s12" } do %>
+
+      <%= booking.fields_for :passengers do | passenger | %>
         <%= content_tag :div, "", { class: "pass_list" } do %>
-          <%= label_tag :name, "Name" %>
-          <%= text_field_tag :name, nil, { class: "validate", type: "text" } %>
-          <%= label_tag :email, "Email" %>
-          <%= text_field_tag :email, nil, { class: "validate", type: "email" } %>
-          <%= button_tag(type: "button",  class: "remove_pass btn blue", id: 1 ) do%>
-            <%= content_tag :strong, "Remove passenger" %>
+          <%= passenger.label :name, "Name" %>
+          <%= passenger.text_field :name, { class: "validate", type: "text", required: "required" } %>
+          <%= passenger.label :email, "Email" %>
+          <%= passenger.text_field :email, { class: "validate", type: "email", required: "required" } %>
           <% end %>
+          <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
+          <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
+          <%= booking.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
+          <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
+          <%= booking.hidden_field :confirmation_code, value: "#{generate_rand(0001, 1000)}" %>
           <% end %>
-          <%= button_tag(type: "button", value: "#{params[:cost]}",  class: "add_more col btn blue left l5 s12" ) do%>
-            <%= content_tag :strong, "Add a passenger" %>
-          <% end %>
+
           <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>
         <% end %>
       <% end %>

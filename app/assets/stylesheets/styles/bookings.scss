@@ -1,8 +1,15 @@
-.fight_container  {
+.flight_container  {
   padding: .35em;
 }
 
 .remove_pass {
   margin-bottom: 2em !important;
   display: block;
+}
+
+.top_pad {
+  padding-top: 3em;
+  label {
+    font-size:1.4em;
+  }
 }

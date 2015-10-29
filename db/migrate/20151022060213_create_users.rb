@@ -5,9 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :string
       t.string :email
       t.string :provider
-      t.string :string
       t.string :user_code
-      t.string :string
 
       t.timestamps null: false
     end

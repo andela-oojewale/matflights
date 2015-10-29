@@ -1,2 +1,37 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<section class="other_container">
+  <div class ="row">
+    <div class="col offset-l1 l3 s12">
+      <h2>Flight successfully booked.</h2>
+       <h4>Confirmation Code: <%= @confirmation_code %></h4>
+      <h4>Airline: <%= session[:airline] %></h4>
+      <h4>Departure: <%= session[:dept] %></h4>
+      <h4>Destination: <%= session[:dest] %></h4>
+      <h4>Flight Time: <%= session[:flight_time] %></h4>
+      <h4>Number of passenger(s): <%= session[:no_of_passengers] %></h4>
+      <h4>Total Cost: $<%= session[:total_cost] %></h4>
+    </div>
+    <div class ="col offset-l1 l5 s12">
+    <h3><strong>Passenger(s)</strong></h3>
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th data-field="name">Name</th>
+          <th data-field="email">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @passengers_list.each do  | key, details | %>
+          <tr>
+           <% details.each do | detail_key, details_val | %>
+              <td><%= details_val %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br/>
+    <%= link_to "Pay with Paypal", @booking.paypal_url("bookings/payment", session[:total_cost], @passengers_list), class: "btn blue col l4 left s12" %>
+    <%= link_to "Go to My Account", log_path, class: "col btn blue right" %>
+  </div>
+    </div>
+</section>

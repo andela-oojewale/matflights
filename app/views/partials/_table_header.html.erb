@@ -1,0 +1,21 @@
+<div class="row">
+  <table class="bordered highlight all_flight">
+    <thead>
+      <tr>
+          <% if !@archive %>
+            <th data-field='id'></th>
+          <% end %>
+          <th data-field="airline">Airline</th>
+          <th data-field="dept">Departure Airport</th>
+          <th data-field="dest">Destination Airport</th>
+          <th data-field="time">Time of Flight</th>
+          <% if @archive %>
+            <th data-field="price"> Cost </th>
+            <th data-field="book"></th>
+          <% else %>
+            <th data-field="price"> Price/Person </th>
+            <th data-field="book"></th>
+          <% end %>
+      </tr>
+    </thead>
+    <tbody>

@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "capybara"
 gem "rails", "4.2.4"
 gem "materialize-sass"
 gem "sass-rails", "~> 5.0"
@@ -7,6 +8,7 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
+gem "factory_girl_rails"
 gem "paypal-express"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
@@ -15,6 +17,9 @@ gem "puma"
 gem "will_paginate-materialize", "0.1.2"
 gem "figaro"
 gem "metric_fu"
+gem "sidekiq"
+gem "mocha"
+gem "responders", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development, :test do
@@ -28,6 +33,7 @@ group :development do
   gem "web-console", "~> 2.0"
   gem "spring"
   gem "letter_opener"
+  gem "launchy"
 end
 
 group :production do

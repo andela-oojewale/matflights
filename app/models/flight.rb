@@ -1,7 +1,8 @@
 class Flight < ActiveRecord::Base
 
-  has_many :bookings
+  has_many :bookings, class_name: "Booking", foreign_key: :flight_id
   has_many :passengers, through: :bookings
+
   belongs_to :from, class_name: "Airport"
   belongs_to :to, class_name: "Airport"
 
@@ -18,6 +19,14 @@ class Flight < ActiveRecord::Base
 
   def get_all_flights
     Flight.includes(:from, :to).order(cost: :asc)
+  end
+
+  def  valid_airports(from, to)
+    if to.empty? || from.empty?
+      message = "Select your departure and destination airports."
+    elsif to == from
+      message = "Departure and Destination airports can not be the same."
+    end
   end
 
   def search_flight(to, from , dept_time)
