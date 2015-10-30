@@ -10,13 +10,14 @@ class FlightsController < ApplicationController
               )
   end
 
-
-  def create
-
-  end
-
-  def show
-
+  def look_up_search(message, to, from, dept_time)
+    @flights_list = Flight.new.search_flight(to, from , dept_time)
+    if @flights_list.kind_of? String
+     flash[:notice] = @flights_list
+     redirect_to root_url
+    else
+     return show_search
+    end
   end
 
   def search
@@ -25,16 +26,11 @@ class FlightsController < ApplicationController
     dept_time  =  flight_params[:dept_time]
     message = Flight.new.valid_airports(from, to)
     if message.nil?
-      @flights_list = Flight.new.search_flight(to, from , dept_time)
-        if @flights_list.kind_of? String
-         flash[:notice] = @flights_list
-        else
-          return show_search
-        end
+      look_up_search(message, to, from, dept_time)
     else
       flash[:notice] = message
+      redirect_to root_url
     end
-    redirect_to root_url
   end
 
   protected

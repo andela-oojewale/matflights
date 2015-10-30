@@ -24,11 +24,4 @@ class Booking < ActiveRecord::Base
     booking.update(no_of_passengers: num)
   end
 
-  # def update_records(booking)
-  #   update_pass = Passenger.where(booking_id: booking[:booking_id]).
-  #     update( no_of_passengers: booking[:booking_id]
-
-  #     )
-  # end
-
 end

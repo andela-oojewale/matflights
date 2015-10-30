@@ -2,46 +2,19 @@ require 'rails_helper'
 
 RSpec.describe FlightsController, type: :controller do
 
-#   # describe "GET #new" do
-#   #   it "returns http success" do
-#   #     get :new
-#   #     expect(response).to have_http_status(:success)
-#   #   end
-#   # end
+  context "GET index" do
+    before do
+      get :index
+    end
+    it "responds with index template when it is invoked" do
+        expect(response).to render_template(:index)
+    end
+  end
 
-#   describe "GET #create" do
-#     it "returns http success" do
-#       get :create
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-#   describe "GET #show" do
-#     it "returns http success" do
-#       get :show
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-#   describe "GET #edit" do
-#     it "returns http success" do
-#       get :edit
-#       expect(response).to have_http_status(:success)
-#     end
-  # end
-
-#   describe "GET #update" do
-#     it "returns http success" do
-#       get :update
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-#   describe "GET #destroy" do
-#     it "returns http success" do
-#       get :destroy
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
+  context "GET look_up_search" do
+    @flights_list = Flight.new.search_flight(1, 2, "")
+    it "responds with show_search template if there's a flight" do
+        expect(flash).to be_a ActionDispatch::Flash::FlashHash
+    end
+  end
 end

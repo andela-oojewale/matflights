@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   match "update" => "bookings#update", via: [:get, :post]
   get "bookings/payment"
 
-
 end
