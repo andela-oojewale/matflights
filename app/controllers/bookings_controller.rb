@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def index
     booking = Booking.new
+    @bookings = []
     @bookings = booking.get_all_bookings("customer_id", session[:user_id])
     @no_record = true if @bookings.empty?
     render :index
