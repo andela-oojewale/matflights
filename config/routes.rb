@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get "logout" => "sessions#destroy"
   get '/auth/:provider/callback', to: "sessions#create"
-  get '/auth/facebook', to: "sessions#create"
 
   get "flights/all" => "flights#index", as: :index
   get "flights/search" => "flights#search", as: :search

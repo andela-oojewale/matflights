@@ -1,11 +1,15 @@
 require 'rails_helper'
+require "support/omniauth_helper"
 
 RSpec.feature "Flights", type: :feature do
-  # before do
-  #   Capybara.app_host = "localhost:3000"
-  #   Capybara.run_server = false
-  #   Capybara.default_driver = :selenium
-  # end
+  before do
+    Capybara.app_host = "localhost:3000"
+    Capybara.run_server = false
+    Capybara.default_driver = :selenium
+
+    # request.env['omniauth.auth'] = set_valid_omniauth
+  end
+
   scenario "visit" do
     visit "/"
     expect(page).to have_title "MatFlights | Booking at ease"
@@ -19,20 +23,28 @@ RSpec.feature "Flights", type: :feature do
 
   end
 
+
+
   scenario "search for existing flight" do
+
     visit "/"
 
     select "Amsterdam Airport Schiphol", from: "flight_from_id"
     select "Dubai International Airport", from: "flight_to_id"
     select "1", from: "passengers"
+
     click_button "Search Flight"
-    expect(page).to have_css("a", text: "Book")
+    expect(page).to have_selector("a", text: "BOOK")
+
+    # click_link "Book"
+
+    # click_link "Login"
+    # click_link "Google"
+    # mock_auth_hash
+
+    # expect(page).to have_content("Flight Information")
+
  end
-
-  # visit "flights/search"
-
-  # first(:link, "Book").click
-  # expect(page).to have_content("Flight Information")
 
   scenario "find no flight where departure and destination are not  chosen." do
     visit "/"

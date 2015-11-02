@@ -20,13 +20,6 @@ RSpec.describe "Routes", type: :routing do
     )
   end
 
-  it "routes FB OAuth path to sessions controller and create action" do
-    expect(:get => "/auth/facebook").to route_to(
-      :controller => "sessions",
-      :action => "create"
-    )
-  end
-
   it "routes flights/all path to flights controller and index action" do
     expect(get("flights/all")).to route_to("flights#index")
   end
