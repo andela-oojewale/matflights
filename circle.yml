@@ -8,5 +8,5 @@ machine:
     version: 2.2.3
 database:
   override:
-    - cp config/database.yml.ci config/database.yml
+    - mv config/database.ci.yml config/database.yml
     - bundle exec rake db:create db:migrate db:seed permissions:permissions --trace
