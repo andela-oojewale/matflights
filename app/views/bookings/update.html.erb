@@ -1,7 +1,7 @@
 <section class="other_container row">
   <div class="top_pad">
     <%= render partial: "partials/flash"%>
-      <%= form_tag("/update", method: [:get, :post], class: "col l8 offset-l1 s12 left") do %>
+      <%= form_tag(update_path, method: [:get, :post], class: "col l8 offset-l1 s12 left") do %>
         <%= label_tag :pass_num, "Change Number of Passengers" %>
         <%= text_field_tag :pass_num, params[:pass], { class: "validate", type: "text", required: "required" } %>
         <%= hidden_field_tag  :id, "#{params[:id]}" %>

@@ -1,1 +1,1 @@
-# load "db/seeds.rb"
+load "db/seeds.rb"

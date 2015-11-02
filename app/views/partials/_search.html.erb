@@ -2,7 +2,7 @@
   <div class="row">
     <h1 class="col offset-l1 l11"> Search for flights</h1>
     <%= render partial: "partials/flash"%>
-    <%= form_tag("/search", method: "get", class: "searcher") do %>
+    <%= form_tag(search_path, method: "get", class: "searcher") do %>
     <%= get_all_airports(
       :from_id,
       "Select Departure Airtport",
@@ -21,35 +21,26 @@
       { class: "box-default col l4 offset-l1 left"}
     )%>
     <%= label_tag(
-      :ret_time,
-      "Return Date",
-      { class: "box-default col l4 offset-l1 left"}
+      :passengers,
+      "Passengers",
+      { class: "box-default col l2 offset-l2 left"}
     )%>
+
     <%= date_field(
       :flight,
       :dept_time,
       { class: "box-default col l4 offset-l1 left datepicker"}
     )%>
-    <%= date_field(
-      :flight,
-      :ret_time,
-      {class: "box-default col l4 offset-l1 left datepicker"}
-    )%> <br/>
-
-    <%= label_tag(
-      :passengers,
-      "Passengers",
-      { class: "box-default col l2 offset-l1 left"}
-    )%>
-
     <%= get_dropdown(
       :passengers,
       1,
       10,
-      "browser-default col l2 offset-l1 left"
+      "browser-default col l3 offset-l2 left"
     )%>
-
-  <button class="btn waves-effect waves-light blue col offset-l1 l3" type="submit" name="search_flight" id="src_btn">Search Flight</button>
-  <% end %>
+    </div>
+  <div class="row">
+    <button class="btn waves-effect waves-light blue col offset-l1 l3 left" type="submit" name="search_flight" id="src_btn">Search Flight</button>
   </div>
+  <% end %>
+
   </div>

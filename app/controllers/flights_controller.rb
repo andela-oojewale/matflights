@@ -13,7 +13,7 @@ class FlightsController < ApplicationController
   def look_up_search(message, to, from, dept_time)
     @flights_list = Flight.new.search_flight(to, from , dept_time)
     if @flights_list.kind_of? String
-     flash[:notice] = @flights_list
+     flash[:alert] = @flights_list
      redirect_to root_url
     else
      return show_search
@@ -28,7 +28,7 @@ class FlightsController < ApplicationController
     if message.nil?
       look_up_search(message, to, from, dept_time)
     else
-      flash[:notice] = message
+      flash[:alert] = message
       redirect_to root_url
     end
   end
