@@ -5,13 +5,13 @@
     <%= form_tag(search_path, method: "get", class: "searcher") do %>
     <%= get_all_airports(
       :from_id,
-      "Select Departure Airtport",
+      "Select Departure Airport",
       "browser-default col l9 offset-l1 s12 left"
     ) %>
     <br/>
     <%= get_all_airports(
       :to_id,
-      "Select Destination Airtport",
+      "Select Destination Airport",
       "browser-default col l9 offset-l1 s12 left")
     %>
       <br/>

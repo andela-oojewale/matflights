@@ -37,4 +37,16 @@ RSpec.describe Booking, type: :model do
       end
     end
   end
+
+  # describe "#delete_record" do
+  #   it "deletes a booking" do
+  #     booking_id = 1
+
+  #     expect(Booking).to receive(:delete_record)
+  #       .with({ booking_id: booking_id})
+
+  #     get :destroy, { booking: { booking_id: booking_id } }
+  #   end
+  # end
+
 end
