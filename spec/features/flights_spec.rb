@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Flights", type: :feature do
-  before do
-    Capybara.default_driver = :selenium
-    OmniAuth.config.test_mode = true
-  end
 
   scenario "visit" do
     visit "/"
@@ -19,7 +15,7 @@ RSpec.feature "Flights", type: :feature do
 
   end
 
-  scenario "find no flight where departure and destination are not  chosen." do
+  scenario "find no flight where departure and destination are not chosen." do
     visit "/"
 
     select "Select Departure Airport", from: "flight_from_id"
@@ -32,8 +28,8 @@ RSpec.feature "Flights", type: :feature do
   scenario "find no flight where departure and destination match no flight." do
     visit "/"
 
-    select "Amsterdam Airport Schiphol", from: "flight_from_id"
-    select "Beijing Capital International Airport", from: "flight_to_id"
+    select "Manchester Airport", from: "flight_from_id"
+    select "Nnamdi Azikwe International Airport", from: "flight_to_id"
     select "1", from: "passengers"
     click_button "Search Flight"
     expect(page).to have_css("h3", text: "No flights found. Please make another search.")

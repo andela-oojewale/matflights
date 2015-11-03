@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "capybara"
 gem "rails", "4.2.4"
 gem "materialize-sass"
 gem "sass-rails", "~> 5.0"
@@ -18,7 +17,6 @@ gem "will_paginate-materialize", "0.1.2"
 gem "figaro"
 gem "metric_fu"
 gem "sidekiq"
-gem "selenium-webdriver"
 gem "mocha"
 gem "responders", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
@@ -28,6 +26,9 @@ group :development, :test do
   gem "byebug"
   gem "simplecov"
   gem "rspec-rails", "~> 3.0"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "database_cleaner"
 end
 
 group :development do
