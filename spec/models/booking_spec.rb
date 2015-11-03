@@ -28,7 +28,7 @@ RSpec.describe Booking, type: :model do
 
 
   describe "#get_all_bookings" do
-    it "should be invalid" do
+    it "fetches all bookings" do
       booking.save
       expect(booking.get_all_bookings("b.id",1)).to be_an Array
     end
@@ -46,6 +46,13 @@ RSpec.describe Booking, type: :model do
     it "fetches confirmation code" do
       booking.save
       expect(booking.get_confirmation(confirmation_code)).to be_valid
+    end
+  end
+
+  describe "#reset_passengers" do
+    it "resets number of passengers for the booking with the given id" do
+      booking.save
+      expect(booking.reset_passengers(2, 1)).to be true
     end
   end
 

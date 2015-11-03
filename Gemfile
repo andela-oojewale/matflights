@@ -25,6 +25,7 @@ group :development, :test do
   gem "sqlite3"
   gem "byebug"
   gem "simplecov"
+  gem "simplecov-shield"
   gem "rspec-rails", "~> 3.0"
   gem "capybara"
   gem "selenium-webdriver"

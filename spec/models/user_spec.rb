@@ -16,4 +16,11 @@ RSpec.describe User, type: :model do
     it {is_expected.to be_invalid}
   end
 
+  describe ".save_info" do
+    let(:provider) {"facebook"}
+    it "saves new user" do
+      expect(User::save_info(provider, user_id, name, email)).to be_a User
+      end
+  end
+
 end
