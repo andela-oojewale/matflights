@@ -28,7 +28,9 @@
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
           <%= booking.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
           <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
-          <% if session[:conf_code] == nil or session[:conf_code] ==  "" %>
+          <% if ENV["conf_code"] %>
+            <%= booking.hidden_field :confirmation_code, value: "#{ ENV['conf_code'].to_i}" %>
+          <% elsif session[:conf_code] == nil or session[:conf_code] ==  "" %>
             <%= booking.hidden_field :confirmation_code, value: "#{ generate_rand(0001, 1000)}" %>
           <% else %>
             <%= booking.hidden_field :confirmation_code, value: "#{ session[:conf_code]}" %>

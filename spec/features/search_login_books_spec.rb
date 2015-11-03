@@ -38,7 +38,7 @@ RSpec.feature "SearchLoginBooks", type: :feature do
 
     expect(page).to have_content("Enter Booking Confirmation Code")
 
-    fill_in "ref", with: 26
+    fill_in "ref", with: 12
     click_on "Find Reservation"
 
     expect(page).to have_content("Change Number of Passengers")
