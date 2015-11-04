@@ -7,7 +7,6 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
-gem "factory_girl_rails"
 gem "paypal-express"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
@@ -30,6 +29,8 @@ group :development, :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "database_cleaner"
+  gem "rack_session_access"
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development do

@@ -1,10 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Flights", type: :feature do
   before do
     Capybara.default_driver = :selenium
     OmniAuth.config.test_mode = true
   end
+
   scenario "visit" do
     visit "/"
     expect(page).to have_title "MatFlights | Booking at ease"

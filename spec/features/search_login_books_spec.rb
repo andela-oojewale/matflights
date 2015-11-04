@@ -7,7 +7,6 @@ RSpec.feature "SearchLoginBooks", type: :feature do
   end
 
   scenario "search to login to book" do
-
     visit "/"
 
     select "Amsterdam Airport Schiphol", from: "flight_from_id"
@@ -36,9 +35,13 @@ RSpec.feature "SearchLoginBooks", type: :feature do
     click_on "Example User"
     click_on "Manage booking"
 
+
+
     expect(page).to have_content("Enter Booking Confirmation Code")
 
+
     fill_in "ref", with: 12
+
     click_on "Find Reservation"
 
     expect(page).to have_content("Change Number of Passengers")
