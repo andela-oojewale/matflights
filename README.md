@@ -4,6 +4,7 @@
 
 [![Test Coverage](https://codeclimate.com/github/andela-oojewale/matflights/badges/coverage.svg)](https://codeclimate.com/github/andela-oojewale/matflights/coverage)
 
+## Introduction
 Hi,
 I have implemented a flight booking system with rails.
 With this app, you can search for flights with or without dates. The  number of passengers you select will determine the number of passenger fields you'll have on your booking form.
