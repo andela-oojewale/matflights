@@ -8,7 +8,7 @@ class Booking < ActiveRecord::Base
   validates :no_of_passengers, presence: true
 
   def get_all_bookings(column, id)
-    Booking.connection.execute("SELECT b.id, b.no_of_passengers, b.flight_id, f.dept_date, f.airline, f.cost, f.from_id, f.to_id, f.flight_code, a.name as departure, c.name as destination FROM bookings AS b INNER JOIN flights AS f ON b.flight_id = f.id INNER JOIN airports AS a ON f.from_id = a.id INNER JOIN airports AS c ON f.to_id = c.id  WHERE (#{column} = #{id.to_s})")
+    Booking.connection.execute("SELECT b.id, b.no_of_passengers, b.flight_id, f.dept_date, f.airline, f.cost, f.from_id, f.to_id, f.flight_code, a.name as departure, c.name as destination FROM bookings AS b INNER JOIN flights AS f ON b.flight_id = f.id INNER JOIN airports AS a ON f.from_id = a.id INNER JOIN airports AS c ON f.to_id = c.id  WHERE (#{column} = '#{id.to_s}')")
   end
 
   def delete_record(booking_id)
