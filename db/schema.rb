@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20151102020029) do
+ActiveRecord::Schema.define(version: 20151104115601) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "name"
