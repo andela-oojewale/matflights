@@ -23,5 +23,6 @@ bashkeep.txt
 # Troublesome figaro file
 /config/initializers/figaro.rb
 dump.rdb
+/coverage
 
 
