@@ -1,9 +1,8 @@
 # MatFlights
 
-[![Code Climate](https://codeclimate.com/repos/56329611e30ba048d7004239/badges/f3093d2e49fb01a9217f/gpa.svg)](https://codeclimate.com/repos/56329611e30ba048d7004239/feed)
+[![Code Climate](https://codeclimate.com/github/andela-oojewale/matflights/badges/gpa.svg)](https://codeclimate.com/github/andela-oojewale/matflights)
 
-[![Test Coverage](https://codeclimate.com/repos/56329611e30ba048d7004239/badges/f3093d2e49fb01a9217f/coverage.svg)](https://codeclimate.com/repos/56329611e30ba048d7004239/coverage)
-
+[![Test Coverage](https://codeclimate.com/github/andela-oojewale/matflights/badges/coverage.svg)](https://codeclimate.com/github/andela-oojewale/matflights/coverage)
 
 Hi,
 I am developing a flight booking system with rails.
