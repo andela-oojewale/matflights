@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     booking = Booking.new
     @bookings = []
     @bookings = booking.get_all_bookings("customer_id", session[:user_id])
-    @no_record = true if @bookings.nil? || @bookings.empty?
+    @no_record = true if @bookings.nil?
     render :index
   end
 
