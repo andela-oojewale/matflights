@@ -22,13 +22,13 @@ Getting started is extremely easy, you can either clone / fork this repository o
 ## Dependencies
 This project is implemented using the rails framework and as such in order to effectively run this project locally, you need to have a version of Rails running on your local development machine. You also need to make sure that you have the Ruby programming language installed as rails is written in ruby.
 
-* [Get Ruby Here](http://www.ruby-lang.org/)!
-* [Get Rails Here](http://rubyonrails.org/)!
+* [Get Ruby Here](http://www.ruby-lang.org/)
+* [Get Rails Here](http://rubyonrails.org/)
 
 You also need to make sure that you have rubygems and bundler installed. RubyGems is a package management framework for Ruby and bundler is a ruby gem that helps to manage other external dependencies in a rails application.
 
-* [Get Rubygems Here](https://rubygems.org/pages/download)!
-* [Get Bundler Here](http://bundler.io/)!
+* [Get Rubygems Here](https://rubygems.org/pages/download)
+* [Get Bundler Here](http://bundler.io/)
 
 Once you have a copy of this project and it's dependencies installed, you are good. Start up your terminal, navigate to the project directory and run the following command to install all the required external dependencies.
 
