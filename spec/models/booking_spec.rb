@@ -6,6 +6,9 @@ RSpec.describe Booking, type: :model do
  let(:no_of_passengers){1}
  let(:confirmation_code){1}
 
+  before(:each) do
+    booking.save
+  end
   context "booking with all params" do
     it {is_expected.to be_valid}
   end
@@ -29,30 +32,25 @@ RSpec.describe Booking, type: :model do
 
   describe "#get_all_bookings" do
     it "fetches all bookings" do
-      booking.save
       expect(booking.get_all_bookings("b.id",1)).to be_an Array
     end
   end
 
   describe "#delete_record" do
     it "deletes a booking" do
-      booking.save
-      booking_id = 1
-      expect { booking.delete_record(booking_id) }.to change(Booking, :count)
-      end
+      expect { booking.delete_record(booking.id) }.to change(Booking, :count)
+    end
   end
 
   describe "#get_confirmation" do
     it "fetches confirmation code" do
-      booking.save
       expect(booking.get_confirmation(confirmation_code)).to be_valid
     end
   end
 
   describe "#reset_passengers" do
     it "resets number of passengers for the booking with the given id" do
-      booking.save
-      expect(booking.reset_passengers(2, 1)).to be true
+      expect(booking.reset_passengers(2, booking.id)).to be true
     end
   end
 

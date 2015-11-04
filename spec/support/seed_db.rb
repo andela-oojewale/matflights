@@ -1,18 +1,22 @@
-require "database_cleaner"
+# require "database_cleaner"
+# DatabaseCleaner.clean_with(:truncation, :only => ["airports", "flights"])
+class Seeds
+  def airport_list
+   [
+    { name: "Murtala Muhammed International Airport", country: "Nigeria", city: "Lagos", code: "MF1" },
+    { name: "Nnamdi Azikwe International Airport", country: "Nigeria", city: "Abuja", code: "MF2" },
+    { name: "Dubai International Airport", country: "Dubai", city: "Garhoud", code: "MF10" },
+    { name: "Manchester Airport", country: "England", city: "Manchester", code: "MF4" },
+    { name: "Amsterdam Airport Schiphol", country: "Holland", city: "Haarlemmermeer", code: "MF16" }
+    ]
+  end
 
-DatabaseCleaner.clean_with(:truncation, :only => ["airports", "flights"])
+  def create_airport
+    airport_list.each { | airport | Airport.create(airport) }
+  end
 
-airports_list = [
-  { name: "Murtala Muhammed International Airport", country: "Nigeria", city: "Lagos", code: "MF1" },
-  { name: "Nnamdi Azikwe International Airport", country: "Nigeria", city: "Abuja", code: "MF2" },
-  { name: "Dubai International Airport", country: "Dubai", city: "Garhoud", code: "MF10" },
-  { name: "Manchester Airport", country: "England", city: "Manchester", code: "MF4" },
-  { name: "Amsterdam Airport Schiphol", country: "Holland", city: "Haarlemmermeer", code: "MF16" }
-  ]
-
-airports_list.each { | airport | Airport.create(airport) }
-
-Flight.create({
+  def create_flight
+    Flight.create({
     dept_date: "2015-11-23",
     dept_time: "6.00am",
     airline: "Qatar Airways",
@@ -21,3 +25,5 @@ Flight.create({
     to_id: 3,
     flight_code: 321}
     )
+  end
+end

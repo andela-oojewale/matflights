@@ -29,16 +29,6 @@ RSpec.feature "Flights", type: :feature do
     expect(page).to have_content("Select your departure and destination airports.")
   end
 
-  # scenario "find no flight where departure and destination match no flight." do
-  #   visit "/"
-
-  #   select "Manchester Airport", from: "flight_from_id"
-  #   select "Nnamdi Azikwe International Airport", from: "flight_to_id"
-  #   select "1", from: "passengers"
-  #   click_button "Search Flight"
-  #   expect(page).to have_css("h3", text: "No flights found. Please make another search.")
-  # end
-
   scenario "find all flights." do
     visit "/"
 

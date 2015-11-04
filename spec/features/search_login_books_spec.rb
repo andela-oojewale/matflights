@@ -1,12 +1,17 @@
 require 'rails_helper'
 
+
 RSpec.feature "SearchLoginBooks", type: :feature do
   before do
     Capybara.default_driver = :selenium
     OmniAuth.config.test_mode = true
+    seeds = Seeds.new
+    seeds.create_airport
+    seeds.create_flight
   end
 
-  scenario "search to login to book" do
+  scenario "search to login to book",  js: true do
+      # require "pry"; binding.pry
     visit "/"
 
     select "Amsterdam Airport Schiphol", from: "flight_from_id"
@@ -40,7 +45,7 @@ RSpec.feature "SearchLoginBooks", type: :feature do
     expect(page).to have_content("Enter Booking Confirmation Code")
 
 
-    fill_in "ref", with: 12
+    fill_in "ref", with: Booking.pluck(:confirmation_code).last
 
     click_on "Find Reservation"
 
@@ -61,7 +66,6 @@ RSpec.feature "SearchLoginBooks", type: :feature do
     click_on "Example User"
     click_on "Logout"
 
-    # expect(page).to have_css "h1", text: "Search for flights"
     expect(page).to have_title "MatFlights | Booking at ease"
 
  end
