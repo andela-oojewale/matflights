@@ -22,5 +22,6 @@ bashkeep.txt
 /config/application.yml
 # Troublesome figaro file
 /config/initializers/figaro.rb
+dump.rdb
 
 

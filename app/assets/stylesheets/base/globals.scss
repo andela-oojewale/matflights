@@ -94,8 +94,12 @@ main {
     margin-bottom: 0.35em;
     font-size: 1em !important;
   }
+  select {
+    margin-bottom: 0.35em;
+  }
   input[type = "date"] {
     border-color: rgb(242, 242, 242) !important;
+    @extend .white;
   }
 }
 
@@ -129,4 +133,8 @@ main {
 .other_container {
   min-height: 24em;
   width: 100%;
+}
+
+.alert {
+  @extend .red-text;
 }

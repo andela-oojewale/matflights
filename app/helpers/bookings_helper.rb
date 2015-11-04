@@ -1,9 +1,9 @@
 module BookingsHelper
 
   def update_saved(booking_params)
-    if @booking.update(booking_params)
-        @booking.save
-        message = "Update successful."
+    @passengers_list = booking_params[:passengers_attributes]
+    if Passenger.new.passenger_info(booking_params) != false
+      message = "Update successful."
     else
       message = "Update failed."
     end
@@ -51,7 +51,15 @@ module BookingsHelper
     end
   end
 
-  def mail_worker(booking_params, name, email)
+  def send_an_email(update, info)
+    if update
+      PostmanWorker.new.modify(info,2)
+    else
+      PostmanWorker.new.perform(info,2)
+    end
+  end
+
+  def mail_worker(booking_params, name, email, update = true)
     @confirmation_code = booking_params[:confirmation_code]
     @passengers_list = booking_params[:passengers_attributes]
     info = JSON.generate({
@@ -59,13 +67,13 @@ module BookingsHelper
         email: email,
         flight_id: booking_params[:flight_id]
     })
-    PostmanWorker.perform_async(info,2)
+    send_an_email(update, info)
     render "show"
   end
 
   def save_booking(booking_params, booking, name, email)
     if booking.save
-      mail_worker(booking_params, name, email)
+      mail_worker(booking_params, name, email, false)
     else
       redirect_to book_path, notice: "Booking failed. Please try again."
     end

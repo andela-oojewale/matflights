@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 20151028165831) do
+ActiveRecord::Schema.define(version: 20151102020029) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "name"
@@ -11,7 +11,6 @@ ActiveRecord::Schema.define(version: 20151028165831) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "no_of_passengers"
-    t.date     "return_time"
     t.integer  "flight_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

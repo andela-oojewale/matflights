@@ -24,7 +24,7 @@
           <% end %>
           <td>
             <% if Date.today < Date.parse(attributes[3]) %>
-              <%= link_to "Cancel Booking", cancel_path(id: booking["id"]), class: "col btn blue" %>
+              <%= link_to "Cancel Booking", cancel_path(id: booking["id"]), class: "col btn red" %>
               <% end %>
           </td>
         </tr>

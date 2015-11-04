@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Booking, type: :model do
- subject(:booking) { Booking.new(flight_id: flight_id, no_of_passengers: no_of_passengers, confirmation_code: confirmation_code) }
+ subject(:booking) { Booking.new(flight_id: flight_id, no_of_passengers: no_of_passengers, confirmation_code: confirmation_code)}
  let(:flight_id){1}
  let(:no_of_passengers){1}
  let(:confirmation_code){1}
@@ -28,13 +28,32 @@ RSpec.describe Booking, type: :model do
 
 
   describe "#get_all_bookings" do
-    let(:user_id){"2wjdjf24fkfkfo"}
-    let(:provider){"google"}
-    let(:email){""}
-    it "should be invalid" do
-      expect do
-        Booking.new.get_all_bookings(user_code: user_id,  provider: provider, email: email).to raise_error ActiveRecord::RecordInvalid
-      end
+    it "fetches all bookings" do
+      booking.save
+      expect(booking.get_all_bookings("b.id",1)).to be_an Array
     end
   end
+
+  describe "#delete_record" do
+    it "deletes a booking" do
+      booking.save
+      booking_id = 1
+      expect { booking.delete_record(booking_id) }.to change(Booking, :count)
+      end
+  end
+
+  describe "#get_confirmation" do
+    it "fetches confirmation code" do
+      booking.save
+      expect(booking.get_confirmation(confirmation_code)).to be_valid
+    end
+  end
+
+  describe "#reset_passengers" do
+    it "resets number of passengers for the booking with the given id" do
+      booking.save
+      expect(booking.reset_passengers(2, 1)).to be true
+    end
+  end
+
 end

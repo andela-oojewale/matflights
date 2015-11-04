@@ -20,35 +20,24 @@ RSpec.describe "Routes", type: :routing do
     )
   end
 
-  it "routes FB OAuth path to sessions controller and create action" do
-    expect(:get => "/auth/facebook").to route_to(
-      :controller => "sessions",
-      :action => "create"
-    )
+  it "routes flights/all path to flights controller and index action" do
+    expect(get("flights/all")).to route_to("flights#index")
   end
 
-  it "routes root path to flights controller and index action" do
-    expect(get("/loggedin")).to route_to("flights#loggedin")
+  it "routes search path to flights controller and search action" do
+    expect(get("flights/search")).to route_to("flights#search")
   end
 
-  it "routes root path to flights controller and index action" do
-    expect(get("/index")).to route_to("flights#index")
-  end
-
-  it "routes root path to flights controller and show action" do
-    expect(get("/search")).to route_to("flights#search")
-  end
-
-  it "routes root path to bookings controller and new action" do
-    expect(get("/book")).to route_to("bookings#new")
+  it "routes make_booking path to bookings controller and new action" do
+    expect(get("booking/make_booking")).to route_to("bookings#new")
   end
 
   it "routes root path to bookings controller and create action" do
-    expect(post("/to_booking")).to route_to("bookings#create")
+    expect(post("to_booking")).to route_to("bookings#create")
   end
 
   it "routes root path to bookings controller and index action" do
-    expect(get("/my_bookings")).to route_to("bookings#index")
+    expect(get("dashboard")).to route_to("bookings#index")
   end
 
 end

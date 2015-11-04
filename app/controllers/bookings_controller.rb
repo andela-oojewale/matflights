@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def index
     booking = Booking.new
+    @bookings = []
     @bookings = booking.get_all_bookings("customer_id", session[:user_id])
     @no_record = true if @bookings.empty?
     render :index
@@ -36,9 +37,11 @@ class BookingsController < ApplicationController
 
   def update
     if !@booking_id.nil?
-      @booking = Booking.find(@booking_id)
+      booking = Booking.new(booking_params)
+      @booking = BookingPresenter.new(booking)
       flash[:notice] = update_saved(booking_params)
-      render :update
+      session.delete(:conf_code)
+      mail_worker(booking_params, session[:name], session[:email])
     else
       change_no_of_pass(params[:pass_num], params[:id])
     end
@@ -51,9 +54,9 @@ class BookingsController < ApplicationController
     if rows > 0
       flash[:notice] = "#{rows} booking cancelled successfully."
     else
-      flash[:notice] = "Unable to cancel the booking, please contact the admin."
+      flash[:alert] = "Unable to cancel the booking, please contact the admin."
     end
-    redirect_to my_bookings_path
+    redirect_to dashboard_path
   end
 
   def get_reservation
@@ -61,7 +64,7 @@ class BookingsController < ApplicationController
     code = params[:ref]
     booking_details = booking.get_confirmation(code)
     if booking_details.nil?
-      flash[:notice] = "Invalid confirmation code"
+      flash[:alert] = "Invalid confirmation code"
       render :edit
     else
       no_of_passenger = booking_details[:no_of_passengers]
@@ -75,7 +78,8 @@ class BookingsController < ApplicationController
 
   def verify_login
     if !current_user
-      flash[:notice] = "You have to login before you proceed."
+      flash[:alert] = "You have to login before you proceed."
+      session[:query] = params
       redirect_to root_path :notice
     end
   end

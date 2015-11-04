@@ -14,19 +14,23 @@
     <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | booking |  %>
      <%= render partial: "partials/flash"%>
       <%= content_tag :div, "", { class: "col s12" } do %>
-
+      <% i = 1 %>
       <%= booking.fields_for :passengers do | passenger | %>
         <%= content_tag :div, "", { class: "pass_list" } do %>
+          <%= content_tag :h2, "Passenger ##{i}" %>
           <%= passenger.label :name, "Name" %>
           <%= passenger.text_field :name, { class: "validate", type: "text", required: "required" } %>
           <%= passenger.label :email, "Email" %>
           <%= passenger.text_field :email, { class: "validate", type: "email", required: "required" } %>
           <% end %>
+          <% i += 1 %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
           <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
           <%= booking.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
           <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
-          <% if session[:conf_code] == nil or session[:conf_code] ==  "" %>
+          <% if ENV["conf_code"] %>
+            <%= booking.hidden_field :confirmation_code, value: "#{ ENV['conf_code'].to_i}" %>
+          <% elsif session[:conf_code] == nil or session[:conf_code] ==  "" %>
             <%= booking.hidden_field :confirmation_code, value: "#{ generate_rand(0001, 1000)}" %>
           <% else %>
             <%= booking.hidden_field :confirmation_code, value: "#{ session[:conf_code]}" %>
