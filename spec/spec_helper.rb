@@ -1,6 +1,5 @@
 require "simplecov"
 SimpleCov.start
-# require "simplecov-shield"
 require "codeclimate-test-reporter"
 
 SimpleCov.start do

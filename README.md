@@ -5,12 +5,19 @@
 [![Test Coverage](https://codeclimate.com/github/andela-oojewale/matflights/badges/coverage.svg)](https://codeclimate.com/github/andela-oojewale/matflights/coverage)
 
 Hi,
-I am developing a flight booking system with rails.
-More information to come shortly.
+I have implemented a flight booking system with rails.
+With this app, you can search for flights with or without dates. The  number of passengers you select will determine the number of passenger fields you'll have on your booking form.
+On successful booking of a flight, you will recieve a booking-success email.
+You will also have the option of paying via paypal or to proceed to your profile.
+The app has features to handle canceling a booking before the day of the flight and also managing the number of passengers on a booking.
+You will also recieve a booking update email if you choose to manage your app.
+Check out the cool [app here](https://matflights.herokuapp.com/)!
+Bug discoveries, suggestions and general feedback will always be appreciated.
+
 Olaide.
 
 ## Project Website
-Click [here](https://matflights.herokuapp.com/) to see a demo of the MatFlights app.
+Click [here](https://matflights.herokuapp.com/) to proceed to the MatFlights app.
 
 ## Contributing
 

@@ -11,7 +11,6 @@ RSpec.feature "SearchLoginBooks", type: :feature do
   end
 
   scenario "search to login to book",  js: true do
-      # require "pry"; binding.pry
     visit "/"
 
     select "Amsterdam Airport Schiphol", from: "flight_from_id"
