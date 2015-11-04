@@ -82,7 +82,6 @@ If you want the tests to read more like a document then pass in these options to
 ## Application Limitations
 The app is a work in progress, as such, it has the following limitations among others.
 * Booking can not be done via any other payment gateway.
-* Booking can not be done for more than 10 persons.
 * The app assumes that booking is cancelled when payment has not been made.
 * App doesn't have a private domain name yet.
 
