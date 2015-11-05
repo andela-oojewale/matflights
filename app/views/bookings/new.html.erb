@@ -21,7 +21,7 @@
           <%= passenger.label :name, "Name" %>
           <%= passenger.text_field :name, { class: "validate", type: "text", required: "required" } %>
           <%= passenger.label :email, "Email" %>
-          <%= passenger.text_field :email, { class: "validate", type: "email", required: "required" } %>
+          <%= passenger.text_field :email, { class: "validate", type: "email", required: true, pattern: '[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}' } %>
           <% end %>
           <% i += 1 %>
           <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
