@@ -6,5 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       :image_aspect_ratio => "square",
       :image_size => 50
     }
-    provider :facebook, ENV["fb_app_id"], ENV["facebook_id"], scope: "public_profile, email", info_fields: "id, name, link, email", display: "popup"
+    provider :facebook, ENV["fb_app_id"], ENV["facebook_id"], scope: "public_profile, email", info_fields: "id, name, link, email"
 end
