@@ -144,3 +144,8 @@ main {
 .alert {
   @extend .red-text;
 }
+.pagination {
+  margin: 3em;
+  .previous_page { display: none }
+  .next_page { display: none }
+}
