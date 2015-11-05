@@ -53,14 +53,20 @@ h6 {
       @include white-links;
   }
   img {
-     margin-top:0.5em;
+    margin-top:0.5em;
   }
 
   .dropdown-content {
-      position: relative;
-      margin-top: 4.2em;
-      width: 15em !important;
-      @include blue-links;
+    position: relative;
+    margin-top: 4.2em;
+    width: 15em !important;
+    @include blue-links;
+  }
+  .dropdown-button {
+    width: 12em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
