@@ -25,6 +25,8 @@ class BookingsController < ApplicationController
     booking = Booking.new(booking_params)
     @booking = BookingPresenter.new(booking)
     @booking_id = booking_params[:id]
+    session[:no_of_passengers] = params[:booking][:no_of_passengers]
+    session[:total_cost] = params[:booking][:total_cost].to_i
     if @booking_id == nil || @booking_id == ""
       save_booking(booking_params, booking, session[:name], session[:email])
     else
