@@ -6,37 +6,34 @@
       <%= content_tag :div, "Departure: #{params[:dept]}", { class: "col s12" } %>
       <%= content_tag :div, "Destination: #{params[:dest]}", { class: "col s12" } %>
       <%= content_tag :div, "Flight Date: #{params[:flight_datetime]}", { class: "col s12" } %>
-      <%= content_tag :div, "Passenger(s): #{params[:pass]}", { class: "col s12" } %>
-      <%= content_tag :div, "Cost/Passenger: $#{params[:cost]}", { class: "total col s12" } %>
+      <%= content_tag :div, "Passenger(s): #{params[:pass]}", { class: "col s12 pass_num" } %>
+      <%= content_tag :div, "Cost/Passenger: $#{params[:cost]}", { class: "cost col s12" } %>
       <%= content_tag :div, "Total Cost: $#{params[:cost].to_i * params[:pass].to_i}", { class: "total col s12" } %>
     <% end %>
 
-    <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | booking |  %>
+    <%= form_for @booking, url: { action: "create" }, html: { class: "col l6 offset-l5 s12 left" } do | f |  %>
      <%= render partial: "partials/flash"%>
-      <%= content_tag :div, "", { class: "col s12" } do %>
-      <% i = 1 %>
-      <%= booking.fields_for :passengers do | passenger | %>
-        <%= content_tag :div, "", { class: "pass_list" } do %>
-          <%= content_tag :h2, "Passenger ##{i}" %>
-          <%= passenger.label :name, "Name" %>
-          <%= passenger.text_field :name, { class: "validate", type: "text", required: "required" } %>
-          <%= passenger.label :email, "Email" %>
-          <%= passenger.text_field :email, { class: "validate", type: "email", required: true, pattern: '[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}' } %>
-          <% end %>
-          <% i += 1 %>
-          <%= booking.hidden_field :no_of_passengers, value: "#{params[:pass]}" %>
-          <%= booking.hidden_field :flight_id, value: "#{params[:id]}" %>
-          <%= booking.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
-          <%= booking.hidden_field :customer_id, value: "#{session[:user_id]}" %>
+      <%= content_tag :div, "", { class: "col s12", id: "tasks" } do %>
+      <%= f.fields_for :passengers do | passenger | %>
+        <%= render "partials/passenger_fields", f: passenger %>
+        <% end %>
+        <%= content_tag :div, "", { class: "links" } do %>
+          <%= link_to_add_association "add passenger", f, :passengers, { partial: "partials/passenger_fields", class: "btn blue col l4 left s12 add_pass", onclick: "adder()"} %>
+        <% end %>
+          <%= f.hidden_field :total_cost, { value: "#{0}", class: "cost_tracker" } %>
+          <%= f.hidden_field :no_of_passengers, { value: "#{params[:pass]}", class: "pass_tracker" } %>
+          <%= f.hidden_field :flight_id, value: "#{params[:id]}" %>
+          <%= f.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
+          <%= f.hidden_field :customer_id, value: "#{session[:user_id]}" %>
 
           <% if session[:conf_code] == nil or session[:conf_code] ==  "" %>
-            <%= booking.hidden_field :confirmation_code, value: "#{ generate_rand(0001, 1000)}" %>
+            <%= f.hidden_field :confirmation_code, value: "#{ generate_rand(0001, 1000)}" %>
           <% else %>
-            <%= booking.hidden_field :confirmation_code, value: "#{ session[:conf_code]}" %>
+            <%= f.hidden_field :confirmation_code, value: "#{ session[:conf_code]}" %>
           <% end %>
+
+          <%= submit_tag( "Book Flight", {class: "btn blue col l3 right s12 smtbook"}) %>
           <% end %>
-          <%= submit_tag( "Book Flight", {class: "btn blue col l3 offset-l4 s12"}) %>
-        <% end %>
       <% end %>
     <% end %>
 

@@ -1,8 +1,8 @@
 <%= content_tag :div, "", { class: "nested-fields pass_list" } do %>
-  <%= content_tag :h2, "Passenger ##{}" %>
+  <%= content_tag :h2, "Passenger Details" %>
   <%= f.label :name, "Name" %>
   <%= f.text_field :name, { class: "validate", type: "text", required: "required" } %>
   <%= f.label :email, "Email" %>
   <%= f.text_field :email, { class: "validate", type: "email", required: true, pattern: '[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}' } %>
-  <%= link_to_remove_association "remove passenger", f, { class: "btn red col l4 s12 rm_pass"} %>
+  <%= link_to_remove_association "remove passenger", f, { class: "btn red col l4 s12 rm_pass", onclick: "remover()"} %>
 <% end %>

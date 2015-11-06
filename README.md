@@ -72,18 +72,18 @@ If you want the tests to read more like a document then pass in these options to
 `bundle exec rspec spec/models/booking_spec.rb -f documentation`
 
 ## Application features
-* Flight search
-* Flight booking
-* Payment integration with paypal
-* Booking cancellation before flight date
-* Viewing past booking
-* Booking management
+* Flight search.
+* Flight booking.
+* Payment integration with paypal.
+* Booking cancellation before flight date.
+* Viewing past booking.
+* Booking management.
 * Email notification.
+* User can add or remove passenger on booking page.
 
 ## Application Limitations
 The app is a work in progress, as such, it has the following limitations among others.
 * Booking can not be done via any other payment gateway.
-* Users can not add or delete passengers when they are already on the booking page.
 * The app assumes that booking is cancelled when payment has not been made.
 * App doesn't have a private domain name yet.
 
