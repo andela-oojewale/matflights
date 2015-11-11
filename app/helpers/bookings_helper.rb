@@ -17,9 +17,10 @@ module BookingsHelper
             :customer_id,
             :id,
             passengers_attributes:
-                                [:name,
-                                 :email,
-                                 :_destroy
+                                [ :id,
+                                  :name,
+                                  :email,
+                                  :_destroy
                                 ] )
   end
 

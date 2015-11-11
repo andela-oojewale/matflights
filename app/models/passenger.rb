@@ -8,11 +8,14 @@ class Passenger < ActiveRecord::Base
   def passenger_info(booking_params)
     Passenger.where(booking_id: booking_params[:id]).destroy_all
     passengers_hash = booking_params[:passengers_attributes]
+    pass_count = 0
     passengers_hash.each do | key, info_set |
-      pass_info = info_set
-      pass_info["booking_id"] = booking_params[:id]
-      return false if !Passenger.create(pass_info).valid?
+      info_set.delete("_destroy")
+      info_set["booking_id"] = booking_params[:id]
+      return false if !Passenger.create(info_set).valid?
+      pass_count += 1
     end
+    Booking.new.reset_passengers(pass_count, booking_params[:id])
   end
 
 end
