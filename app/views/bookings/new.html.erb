@@ -20,7 +20,7 @@
         <%= content_tag :div, "", { class: "links" } do %>
           <%= link_to_add_association "add passenger", f, :passengers, { partial: "partials/passenger_fields", class: "btn blue col l4 left s12 add_pass", onclick: "adder()"} %>
         <% end %>
-          <%= f.hidden_field :total_cost, { value: "#{0}", class: "cost_tracker" } %>
+          <%= f.hidden_field :total_cost, { value: "#{params[:cost]}", class: "cost_tracker" } %>
           <%= f.hidden_field :no_of_passengers, { value: "#{params[:pass]}", class: "pass_tracker" } %>
           <%= f.hidden_field :flight_id, value: "#{params[:id]}" %>
           <%= f.hidden_field :id, value: "#{params[:booking_id] ||= nil}" %>
